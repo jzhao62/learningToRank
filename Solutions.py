@@ -161,9 +161,9 @@ the resulting inverse sigma, and random centers are used to create DM for valida
 
 
 def resultingDM(data,
-                              sigma_inv,
-                              rand_centers,
-                              num_basis):
+                sigma_inv,
+                rand_centers,
+                num_basis):
 
     design_matrix = np.zeros((len(data),num_basis))
     for i in range(len(data)):
@@ -184,20 +184,20 @@ def resultingDM(data,
  w∗ = inv((λI + transpose(Φ) * Φ))* transpose(Φ)*y , nothing too complex
 '''
 
-def closedForm_weightTraining(design_matrix,
-                                        sigma_inv,
-                                        training_labels,
-                                        lamda,
-                                        num_basis):
-    DM_trans = design_matrix.transpose()
-    regularisation = lamda * np.identity(num_basis)
+def closedForm_weightTraining(Φ,
+                              sigma_inv,
+                              training_labels,
+                              reg,
+                              num_basis):
+    Φ_trans = Φ.transpose()
+    λ= reg * np.identity(num_basis)
 
-    firstHalf= np.linalg.inv(regularisation + np.dot(DM_trans, design_matrix))
+    firstHalf= np.linalg.inv(λ + np.dot(Φ_trans, Φ))
+    secondHalf= np.dot(Φ_trans, training_labels)
 
-    secondHalf= np.dot(DM_trans, training_labels)
     weights = np.dot(firstHalf, secondHalf)
-    train_error = calculate_error(design_matrix, weights, training_labels)
-    return weights, train_error
+    trainingLoss = calculate_error(Φ, weights, training_labels)
+    return weights, trainingLoss
 
 
 

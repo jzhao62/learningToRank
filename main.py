@@ -1,5 +1,4 @@
-from Solutions import *
-from gradientDescent import *
+
 from parameterTuning import *
 
 
@@ -99,7 +98,7 @@ def performanceGD_LETR(lamda_values,
                                                                                               lamda,
                                                                                               num_basis)
 
-    weights_GradientDescent, rmse_train_GradientDescent, learning_rate_changes_GradientDescent, error_iteration_letor_GradientDescent = stochastic_gradient_solution(design_matrix_train_GradientDescent,
+    weights_GradientDescent, rmse_train_GradientDescent, learning_rate_changes_GradientDescent, error_iteration_letor_GradientDescent = SGD_sol(design_matrix_train_GradientDescent,
                                                                                                                      training_labels_letor,
                                                                                                                      lamda,
                                                                                                                      num_basis)
@@ -228,37 +227,39 @@ def performanceGD_syn(lamda_values,
 
     ''' After choosing the best hyperparameters, we fix their values and compute the model performance on test set'''
     lamda = 0.1
-
     num_basis = 5
 
-    design_matrix_train_syn_GradientDescent,\
-    sigma_inv_syn_GradientDescent, \
+    DM_Training_Task4,\
+    InverseSig_Task4, \
     rbf_centers_syn_GradientDescent = priorDM(training_data_syn,
-                                                                      training_labels_syn,
-                                                                      lamda,
-                                                                      num_basis)
-
+                                              training_labels_syn,
+                                              lamda,
+                                              num_basis)
+    '''
+    We are testing different gradient descent method here
+    '''
     weights_syn_GradientDescent, \
     rmse_train_syn_GradientDescent, \
     learning_rate_changes_syn_GradientDescent, \
-    error_iteration_syn_GradientDescent = stochastic_gradient_solution(design_matrix_train_syn_GradientDescent,
-                                                                       training_labels_syn,
-                                                                       lamda,
-                                                                       num_basis)
+    error_iteration_syn_GradientDescent = SGD_sol(DM_Training_Task4,
+                                                  training_labels_syn,
+                                                  lamda,
+                                                  num_basis)
 
 
 
     design_matrix_validation_syn_GradientDescent = resultingDM(valid_data_syn,
-                                                                             sigma_inv_syn_GradientDescent,
-                                                                             rbf_centers_syn_GradientDescent,
-                                                                             num_basis)
+                                                                InverseSig_Task4,
+                                                                rbf_centers_syn_GradientDescent,
+                                                                num_basis)
 
     rmse_validation_syn_GradientDescent = calculate_error(design_matrix_validation_syn_GradientDescent,
                                                           weights_syn_GradientDescent,
                                                           valid_labels_syn)
 
+
     design_matrix_test_syn_GradientDescent = resultingDM(test_data_syn,
-                                                                       sigma_inv_syn_GradientDescent,
+                                                                       InverseSig_Task4,
                                                                        rbf_centers_syn_GradientDescent,
                                                                        num_basis)
 
@@ -276,7 +277,7 @@ def performanceGD_syn(lamda_values,
     print ("\n")
     print ("Weights Vector(w) for the trained Model:\n", weights_syn_GradientDescent)
 
-    ''' Commented the plots, to handle error on timberlake server, uncomment to plot '''
+    # ''' Commented the plots, to handle error on timberlake server, uncomment to plot '''
     # plt.plot(error_iteration_syn_GradientDescent, 'r-', label='Train Error')
     # plt.axis([0, 50, 0.7, 1.8])
     # plt.ylabel('RMSE Training')
@@ -284,7 +285,7 @@ def performanceGD_syn(lamda_values,
     # plt.title('Change in Training Error vs gradientDescent Iterations')
     # l = plt.legend()
     # plt.show()
-
+    #
     # plt.plot(learning_rate_changes_syn_GradientDescent, 'g-', label='Learning Rate')
     # plt.axis([0, 100, 0, 1])
     # plt.ylabel('Learning Rate Eta Value')
@@ -294,10 +295,12 @@ def performanceGD_syn(lamda_values,
     # plt.show()
 
 
+
 def main():
     train_percent = 0.8
     validation_percent = 0.1
-    lamda_values = [0.001, 0.01, 0.1, 1]
+    # lamda_values = [0.001, 0.01, 0.1, 1]
+    lamda_values = [0.001, 0.01]
 
 
 
@@ -317,7 +320,7 @@ def main():
 
 
 
-    if(True):
+    if(False):
         performanceTuning1(lamda_values,
                             error_matrix_letor,
                             training_data_letor,
@@ -330,6 +333,7 @@ def main():
         print("1st complete\n")
 
     if(False):
+        print("GradientDescent on LeTR")
         performanceTuning2(lamda_values,
                        error_matrix_letor,
                        training_data_letor,
@@ -402,6 +406,7 @@ def main():
 
     if(False):
         '''Tuning Task 4'''
+        print("GradientDescent on Syn")
         performanceTuning4(lamda_values,
                            error_matrix_syn,
                            training_data_syn,
@@ -422,17 +427,19 @@ def main():
     #                                  test_data_syn,
     #                                  test_labels_syn)
 
-
-    # performanceGD_syn(lamda_values,
-    #                          error_matrix_syn,
-    #                          training_data_syn,
-    #                          training_labels_syn,
-    #                          valid_data_syn,
-    #                          valid_labels_syn,
-    #                          test_data_syn,
-    #                          test_labels_syn)
+    print("Testing Task 4")
+    performanceGD_syn(lamda_values,
+                             error_matrix_syn,
+                             training_data_syn,
+                             training_labels_syn,
+                             valid_data_syn,
+                             valid_labels_syn,
+                             test_data_syn,
+                             test_labels_syn)
 
 
 
 
 main()
+
+print("∇")

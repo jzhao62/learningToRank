@@ -56,6 +56,7 @@ def Tuning2(lamda_values, error_matrix_letor,
             training_data_letor,training_labels_letor,
             valid_data_letor,valid_labels_letor,
             test_data_letor, test_labels_letor):
+
     for lamda in lamda_values:
         print ("lamda = ", lamda)
         error_matrix_letor['gradientDescent']['train'][lamda] = []
@@ -63,7 +64,7 @@ def Tuning2(lamda_values, error_matrix_letor,
         for num_basis in range(1, 31):
             design_matrix_train_letor, sigma_inv_letor, rbf_centers_letor = priorDM(training_data_letor, training_labels_letor, lamda, num_basis)
 
-            weights_letor, rmse_train_letor, learning_rate_changes, error_iteration = stochastic_gradient_solution(design_matrix_train_letor, training_labels_letor, lamda, num_basis)
+            weights_letor, rmse_train_letor, learning_rate_changes, error_iteration = SGD_sol(design_matrix_train_letor, training_labels_letor, lamda, num_basis)
 
             design_matrix_validation_letor = resultingDM(valid_data_letor, sigma_inv_letor, rbf_centers_letor, num_basis)
 
@@ -91,12 +92,14 @@ def Tuning3(lamda_values,
         error_matrix_syn['closed_form']['train'][lamda] = []
         error_matrix_syn['closed_form']['validation'][lamda] = []
         for num_basis in range(1, 11):
+
+
             design_matrix_train_syn,\
             sigma_inv_syn, \
             rbf_centers_syn = priorDM(training_data_syn,
-                                                              training_labels_syn,
-                                                              lamda,
-                                                              num_basis)
+                                      training_labels_syn,
+                                      lamda,
+                                      num_basis)
 
             weights_syn,\
             rmse_train_syn = closedForm_weightTraining(design_matrix_train_syn,
@@ -106,9 +109,9 @@ def Tuning3(lamda_values,
                                                                  num_basis)
 
             design_matrix_validation_syn = resultingDM(valid_data_syn,
-                                                                     sigma_inv_syn,
-                                                                     rbf_centers_syn,
-                                                                     num_basis)
+                                                       sigma_inv_syn,
+                                                       rbf_centers_syn,
+                                                        num_basis)
 
 
             rmse_validation_syn = calculate_error(design_matrix_validation_syn,
@@ -135,21 +138,21 @@ def Tuning4(lamda_values,error_matrix_syn,training_data_syn,
         error_matrix_syn['gradientDescent']['train'][lamda] = []
         error_matrix_syn['gradientDescent']['validation'][lamda] = []
         for num_basis in range(1, 11):
-            design_matrix_train_syn_GradientDescent, \
-            sigma_inv_syn_GradientDescent, \
+            DM_Training_Task4, \
+            InverseSig_Task4, \
             rbf_centers_syn_GradientDescent = priorDM(training_data_syn,
-                                                                              training_labels_syn,
-                                                                              lamda,
-                                                                              num_basis)
+                                                      training_labels_syn,
+                                                      lamda,
+                                                      num_basis)
+
             weights_syn_GradientDescent,\
             rmse_train_syn_GradientDescent, \
-            learning_rate_changes_syn, error_iteration\
-                = stochastic_gradient_solution(design_matrix_train_syn_GradientDescent,
-                                                                     training_labels_syn,
-                                                                     lamda,
-                                                                     num_basis)
+            learning_rate_changes_syn, error_iteration = SGD_sol(DM_Training_Task4,
+                                                                                       training_labels_syn,
+                                                                                       lamda,
+                                                                                       num_basis)
 
-            design_matrix_validation_syn_GradientDescent = resultingDM(valid_data_syn, sigma_inv_syn_GradientDescent, rbf_centers_syn_GradientDescent, num_basis)
+            design_matrix_validation_syn_GradientDescent = resultingDM(valid_data_syn, InverseSig_Task4, rbf_centers_syn_GradientDescent, num_basis)
 
             rmse_validation_syn_GradientDescent = calculate_error(design_matrix_validation_syn_GradientDescent, weights_syn_GradientDescent, valid_labels_syn)
 
@@ -266,6 +269,8 @@ def performanceTuning4(lamda_values,
                         test_labels_syn):
 
     error_matrix_syn = Tuning4(lamda_values, error_matrix_syn, training_data_syn, training_labels_syn, valid_data_syn, valid_labels_syn, test_data_syn, test_labels_syn)
+
+
 
     ''' The plots can be generated using the error matrix obtained from training. These plots help us choose the optimum hyperparameters M and lamda'''
     for lamda in sorted(error_matrix_syn['gradientDescent']['train']):
