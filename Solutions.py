@@ -5,14 +5,14 @@ from sklearn.cluster import KMeans
 
 def readFile(in_filename, out_filename):
     input_matrix = []
-    output_vec = []
+    output = []
 
     lines_in = [line.rstrip('\n') for line in open(in_filename)]
     lines_out = [line.rstrip('\n') for line in open(out_filename)]
 
     print (len(lines_in), len(lines_out))
     for line in lines_out:
-        output_vec.append(int(line))
+        output.append(int(line))
 
     for line in lines_in:
         token_list = line.split(',')
@@ -21,26 +21,26 @@ def readFile(in_filename, out_filename):
             input_vec.append(float(token))
         input_matrix.append(input_vec)
 
-    output_vec = np.array(output_vec)
+    output = np.array(output)
     input_matrix = np.array(input_matrix)
-    return input_matrix, output_vec
+    return input_matrix, output
 
 
 def calculate_error(input_matrix,
                     weights,
-                    output_vec):
+                    output):
 
     predicted_output = np.dot(weights, input_matrix.transpose())
-    sq_error_sum = np.sum(np.square(output_vec - predicted_output))
-    error = np.sqrt(float(sq_error_sum)/len(output_vec))
-    return error
+    squared_error_sum = np.sum(np.square(output - predicted_output))
+    rmse = np.sqrt(float(squared_error_sum)/len(output))
+    return rmse
 
-def shuffle(input_matrix, output_vec):
-    complete_train_data = np.insert(input_matrix, 0, output_vec, axis=1)
+def shuffle(input_matrix, output):
+    complete_train_data = np.insert(input_matrix, 0, output, axis=1)
     np.random.shuffle(complete_train_data)
-    training_labels = complete_train_data[:,0]
+    trainingLabels = complete_train_data[:,0]
     input_matrix = np.delete(complete_train_data,0,axis=1)
-    return input_matrix, training_labels
+    return input_matrix, trainingLabels
 
 def plot_data(y_values1, y_values2, lamda, label1, label2, axis_dim):
     plt.plot(y_values1, 'ro',label=label1)
@@ -54,39 +54,39 @@ def plot_data(y_values1, y_values2, lamda, label1, label2, axis_dim):
 
 
 
-def split_training_data(input_matrix,
-                        output_vec,
-                        train_percent,
-                        validation_percent):
-    input_matrix, output_vec = shuffle(input_matrix, output_vec)
-    training_data = []
-    training_labels = []
-    valid_data = []
-    valid_labels = []
-    test_data = []
-    test_labels = []
+def partition(input_matrix,
+              output,
+              train_percent,
+              validation_percent):
+
+    input_matrix, output = shuffle(input_matrix, output)
+    trainingSets = []
+    trainingLabels = []
+    validationSets = []
+    validationLabels = []
+    testSets = []
+    testLabels = []
 
     train_len = int(np.floor(float(train_percent) * len(input_matrix)))
     for i in range(train_len):
-        training_data.append(input_matrix[i])
-        training_labels.append(output_vec[i])
+        trainingSets.append(input_matrix[i])
+        trainingLabels.append(output[i])
 
     validation_len = int(np.floor(validation_percent * len(input_matrix)))
     for i in range(train_len, train_len+validation_len):
-        valid_data.append(input_matrix[i])
-        valid_labels.append(output_vec[i])
+        validationSets.append(input_matrix[i])
+        validationLabels.append(output[i])
 
     for i in range(train_len+validation_len, len(input_matrix)):
-        test_data.append(input_matrix[i])
-        test_labels.append(output_vec[i])
+        testSets.append(input_matrix[i])
+        testLabels.append(output[i])
 
-    return np.array(training_data), np.array(training_labels), np.array(valid_data), np.array(valid_labels), np.array(test_data), np.array(test_labels)
+    return np.array(trainingSets), np.array(trainingLabels), np.array(validationSets), np.array(validationLabels), np.array(testSets), np.array(testLabels)
 
 def k_means_clusters(train_data,
-                     training_labels,
+                     trainingLabels,
                      num_basis):
     try:
-        from sklearn.cluster import KMeans
         kmeans = KMeans(n_clusters=num_basis, random_state=0).fit(train_data)
         labels = kmeans.labels_
         cluster_centers = kmeans.cluster_centers_
@@ -99,7 +99,7 @@ def k_means_clusters(train_data,
 
 
 # could be used to track K means training
-# def k_means_clusters(train_data, training_labels, num_basis):
+# def k_means_clusters(train_data, trainingLabels, num_basis):
 #     kmeans = KMeans(n_clusters=num_basis, random_state=0).fit(train_data)
 #     labels = kmeans.labels_
 #     cluster_centers = kmeans.cluster_centers_
@@ -110,7 +110,7 @@ def k_means_clusters(train_data,
 #         for j in range(len(train_data)):
 #             if labels[j] == i:
 #                 clusters[i]['train_data'].append(train_data[j])
-#                 clusters[i]['output'].append(training_labels[j])
+#                 clusters[i]['output'].append(trainingLabels[j])
 #
 #     for i in range(num_basis):
 #         print(i, len(clusters[i]['train_data']))
@@ -126,7 +126,7 @@ the resulting inverse sigma, and random centers are used to create DM for valida
 
 '''
 def priorDM(train_data,
-                                    training_labels,
+                                    trainingLabels,
                                     lamda,
                                     num_basis):
 
@@ -135,7 +135,7 @@ def priorDM(train_data,
     sigma = sigma + 0.001 * np.identity(len(train_data[0])) # Add a small quantity to avoid 0 values in variance matrix.
     sigma_inv = np.linalg.inv(sigma)
 
-    rand_centers = k_means_clusters(train_data, training_labels, num_basis)
+    rand_centers = k_means_clusters(train_data, trainingLabels, num_basis)
     rand_centers = np.array(rand_centers)
     design_matrix=np.zeros((len(train_data),num_basis));
 
@@ -186,31 +186,31 @@ def resultingDM(data,
 
 def closedForm_weightTraining(Φ,
                               sigma_inv,
-                              training_labels,
+                              trainingLabels,
                               reg,
                               num_basis):
     Φ_trans = Φ.transpose()
     λ= reg * np.identity(num_basis)
 
     firstHalf= np.linalg.inv(λ + np.dot(Φ_trans, Φ))
-    secondHalf= np.dot(Φ_trans, training_labels)
+    secondHalf= np.dot(Φ_trans, trainingLabels)
 
     weights = np.dot(firstHalf, secondHalf)
-    trainingLoss = calculate_error(Φ, weights, training_labels)
+    trainingLoss = calculate_error(Φ, weights, trainingLabels)
     return weights, trainingLoss
 
 
 
 
 
-# def closed_form_solution_validation_phase(valid_data, valid_labels, weights, sigma_inv, rand_centers,num_basis):
-#     valid_design_matrix=np.zeros((len(valid_data),num_basis));
-#     for i in range(len(valid_data)):
+# def closed_form_solution_validation_phase(validationSets, validationLabels, weights, sigma_inv, rand_centers,num_basis):
+#     valid_design_matrix=np.zeros((len(validationSets),num_basis));
+#     for i in range(len(validationSets)):
 #         for j in range(num_basis):
 #             if j==0:
 #                 valid_design_matrix[i][j] = 1;
 #             else:
-#                 x_mu = valid_data[i]-rand_centers[j]
+#                 x_mu = validationSets[i]-rand_centers[j]
 #                 x_mu_trans = x_mu.transpose()
 #                 temp1_valid = np.dot(sigma_inv, x_mu_trans)
 #                 temp2_valid = np.dot(x_mu, temp1_valid)
@@ -219,14 +219,14 @@ def closedForm_weightTraining(Φ,
 #     predicted_output_validation = np.dot(weights, valid_design_matrix.transpose())
 #     count = 0
 #     for i in range(len(predicted_output_validation)):
-#         if np.rint(predicted_output_validation[i]) != int(valid_labels[i]):
+#         if np.rint(predicted_output_validation[i]) != int(validationLabels[i]):
 #             count +=1
 #
 #     print ("Error: ", float(count)/len(predicted_output_validation))
-#     sq_error_sum_validation = np.sum(np.square(valid_labels - predicted_output_validation))
+#     sq_error_sum_validation = np.sum(np.square(validationLabels - predicted_output_validation))
 #
 #     # print sq_error_sum
-#     validation_error = np.sqrt(float(sq_error_sum_validation)/len(valid_data))
+#     validation_error = np.sqrt(float(sq_error_sum_validation)/len(validationSets))
 #     return validation_error
 
 

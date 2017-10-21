@@ -64,7 +64,7 @@ def Tuning2(lamda_values, error_matrix_letor,
         for num_basis in range(1, 31):
             design_matrix_train_letor, sigma_inv_letor, rbf_centers_letor = priorDM(training_data_letor, training_labels_letor, lamda, num_basis)
 
-            weights_letor, rmse_train_letor, learning_rate_changes, error_iteration = SGD_sol(design_matrix_train_letor, training_labels_letor, lamda, num_basis)
+            weights_letor, rmse_train_letor, learning_rate_changes, RMSE_records = SGD_sol(design_matrix_train_letor, training_labels_letor, lamda, num_basis)
 
             design_matrix_validation_letor = resultingDM(valid_data_letor, sigma_inv_letor, rbf_centers_letor, num_basis)
 
@@ -147,7 +147,7 @@ def Tuning4(lamda_values,error_matrix_syn,training_data_syn,
 
             weights_syn_GradientDescent,\
             rmse_train_syn_GradientDescent, \
-            learning_rate_changes_syn, error_iteration = SGD_sol(DM_Training_Task4,
+            learning_rate_changes_syn, RMSE_records = SGD_sol(DM_Training_Task4,
                                                                                        training_labels_syn,
                                                                                        lamda,
                                                                                        num_basis)

@@ -22,7 +22,7 @@ def performanceCF_LETR(lamda_values,
     num_basis = 30
 
     design_matrix_train_cf,\
-    sigma_inv_cf, \
+    sigmaInv_closedForm, \
     rbf_centers_cf = priorDM(training_data_letor,
                                                      training_labels_letor,
                                                      lamda,
@@ -31,20 +31,20 @@ def performanceCF_LETR(lamda_values,
 
     weights_cf,\
     rmse_train_cf = closedForm_weightTraining(design_matrix_train_cf,
-                                                                    sigma_inv_cf,
+                                                                    sigmaInv_closedForm,
                                                                     training_labels_letor,
                                                                     lamda,
                                                                     num_basis)
 
 
     design_matrix_validation_cf = resultingDM(valid_data_letor,
-                                                            sigma_inv_cf,
+                                                            sigmaInv_closedForm,
                                                             rbf_centers_cf,
                                                             num_basis)
 
 
     design_matrix_test_cf = resultingDM(test_data_letor,
-                                                      sigma_inv_cf,
+                                                      sigmaInv_closedForm,
                                                       rbf_centers_cf,
                                                       num_basis)
 
@@ -93,24 +93,27 @@ def performanceGD_LETR(lamda_values,
     lamda = 0.01
     num_basis = 11
 
-    design_matrix_train_GradientDescent, sigma_inv_GradientDescent, rbf_centers_GradientDescent = priorDM(training_data_letor,
-                                                                                              training_labels_letor,
-                                                                                              lamda,
-                                                                                              num_basis)
+    design_matrix_train_GradientDescent, \
+    sigma_inv_GradientDescent, \
+    rbf_centers_GradientDescent = priorDM(training_data_letor,
+                                          training_labels_letor,lamda,
+                                          num_basis)
 
-    weights_GradientDescent, rmse_train_GradientDescent, learning_rate_changes_GradientDescent, error_iteration_letor_GradientDescent = SGD_sol(design_matrix_train_GradientDescent,
-                                                                                                                     training_labels_letor,
-                                                                                                                     lamda,
-                                                                                                                     num_basis)
-
-
-    design_matrix_validation_GradientDescent = resultingDM(valid_data_letor,
-                                                             sigma_inv_GradientDescent,
-                                                             rbf_centers_GradientDescent,
-                                                             num_basis)
+    weights_GradientDescent,\
+    rmse_train_GradientDescent, \
+    learning_rate_changes_GradientDescent, \
+    error_iteration_letor_GradientDescent = SGD_sol_momentum(design_matrix_train_GradientDescent,
+                                                    training_labels_letor,
+                                                    lamda,num_basis)
 
 
-    rmse_validation_GradientDescent = calculate_error(design_matrix_validation_GradientDescent,
+    DM_validation_GD = resultingDM(valid_data_letor,
+                                   sigma_inv_GradientDescent,
+                                   rbf_centers_GradientDescent,
+                                   num_basis)
+
+
+    rmse_validation_GD = calculate_error(DM_validation_GD,
                                           weights_GradientDescent,
                                           valid_labels_letor)
 
@@ -129,30 +132,30 @@ def performanceGD_LETR(lamda_values,
     print ("\n")
     print ("RMSE on Training Set: ", rmse_train_GradientDescent )
     print ("\n")
-    print ("RMSE on Validation Set: ", rmse_validation_GradientDescent)
+    print ("RMSE on Validation Set: ", rmse_validation_GD)
     print ("\n")
     print ("RMSE on Test Set: ", rmse_test_GradientDescent)
     print ("\n")
     print ("Weights Vector(w) for the trained Model:\n", weights_GradientDescent)
 
 
-
-    ''' Commented the plots, to handle error on timberlake server, uncomment to plot '''
-    plt.plot(error_iteration_letor_GradientDescent, 'r-', label='Train Error')
-    plt.axis([0, 50, 0.4, 1])
-    plt.ylabel('RMSE in Training Set')
-    plt.xlabel('Number of Epochs')
-    plt.title('Change in Training Error vs Epochs')
-    l = plt.legend()
-    plt.show()
-
-    plt.plot(learning_rate_changes_GradientDescent, 'g-', label='Learning Rate')
-    plt.axis([0, 100, 0, 1])
-    plt.ylabel('Learning Rate Value')
-    plt.xlabel('Number of Epochs')
-    plt.title('Learning Rate  vs Epochs')
-    l = plt.legend()
-    plt.show()
+    #
+    # ''' Commented the plots, to handle error on timberlake server, uncomment to plot '''
+    # plt.plot(error_iteration_letor_GradientDescent, 'r-', label='Train Error')
+    # plt.axis([0, 50, 0.4, 1])
+    # plt.ylabel('RMSE in Training Set')
+    # plt.xlabel('Number of Epochs')
+    # plt.title('Change in Training Error vs Epochs')
+    # l = plt.legend()
+    # plt.show()
+    #
+    # plt.plot(learning_rate_changes_GradientDescent, 'g-', label='Learning Rate')
+    # plt.axis([0, 100, 0, 1])
+    # plt.ylabel('Learning Rate Value')
+    # plt.xlabel('Number of Epochs')
+    # plt.title('Learning Rate  vs Epochs')
+    # l = plt.legend()
+    # plt.show()
 
 
 
@@ -241,7 +244,7 @@ def performanceGD_syn(lamda_values,
     weights_syn_GradientDescent, \
     rmse_train_syn_GradientDescent, \
     learning_rate_changes_syn_GradientDescent, \
-    error_iteration_syn_GradientDescent = SGD_sol(DM_Training_Task4,
+    error_iteration_syn_GradientDescent = SGD_sol_momentum(DM_Training_Task4,
                                                   training_labels_syn,
                                                   lamda,
                                                   num_basis)
@@ -308,7 +311,7 @@ def main():
     out_filename_syn = 'data\Querylevelnorm_t.csv'
 
     feature_mat_letor, output_labels_letor = readFile(in_filename_syn, out_filename_syn)
-    training_data_letor, training_labels_letor, valid_data_letor, valid_labels_letor, test_data_letor, test_labels_letor = split_training_data(feature_mat_letor,
+    training_data_letor, training_labels_letor, valid_data_letor, valid_labels_letor, test_data_letor, test_labels_letor = partition(feature_mat_letor,
                                                                                                                                                output_labels_letor,
                                                                                                                                                train_percent,
                                                                                                                                                validation_percent)
@@ -361,13 +364,13 @@ def main():
     #                         test_labels_letor)
 
 
-    # performanceGD_LETR(lamda_values,
-    #                 error_matrix_letor,
-    #                 training_data_letor,
-    #                 training_labels_letor,
-    #                 valid_data_letor,
-    #                 valid_labels_letor,
-    #                 test_data_letor, test_labels_letor)
+    performanceGD_LETR(lamda_values,
+                    error_matrix_letor,
+                    training_data_letor,
+                    training_labels_letor,
+                    valid_data_letor,
+                    valid_labels_letor,
+                    test_data_letor, test_labels_letor)
 
 
     in_filename_syn = 'data\input.csv'
@@ -381,7 +384,7 @@ def main():
     valid_data_syn, \
     valid_labels_syn, \
     test_data_syn, \
-    test_labels_syn = split_training_data(feature_mat_syn,
+    test_labels_syn = partition(feature_mat_syn,
                                           output_labels_syn,
                                           train_percent,
                                           validation_percent)
@@ -418,6 +421,7 @@ def main():
 
 
 
+    #  print("Testing Task 3")
     # performanceCF_Syn(lamda_values,
     #                                  error_matrix_syn,
     #                                  training_data_syn,
@@ -427,15 +431,15 @@ def main():
     #                                  test_data_syn,
     #                                  test_labels_syn)
 
-    print("Testing Task 4")
-    performanceGD_syn(lamda_values,
-                             error_matrix_syn,
-                             training_data_syn,
-                             training_labels_syn,
-                             valid_data_syn,
-                             valid_labels_syn,
-                             test_data_syn,
-                             test_labels_syn)
+    # print("Testing Task 4")
+    # performanceGD_syn(lamda_values,
+    #                          error_matrix_syn,
+    #                          training_data_syn,
+    #                          training_labels_syn,
+    #                          valid_data_syn,
+    #                          valid_labels_syn,
+    #                          test_data_syn,
+    #                          test_labels_syn)
 
 
 

@@ -4,6 +4,7 @@
     <list default="true" id="5e4ed871-1611-4b2f-98c4-cc05d3a02a51" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Solutions.py" afterPath="$PROJECT_DIR$/Solutions.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Synthetic_data_solution.py" afterPath="$PROJECT_DIR$/Synthetic_data_solution.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gradientDescent.py" afterPath="$PROJECT_DIR$/gradientDescent.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.py" afterPath="$PROJECT_DIR$/main.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/parameterTuning.py" afterPath="$PROJECT_DIR$/parameterTuning.py" />
@@ -23,31 +24,39 @@
       <file leaf-file-name="Solutions.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Solutions.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="36" lean-forward="true" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
+            <state relative-caret-position="4410">
+              <caret line="218" column="43" lean-forward="false" selection-start-line="218" selection-start-column="43" selection-end-line="218" selection-end-column="43" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
-                <element signature="e#1414#1655#0" expanded="false" />
-                <element signature="e#1821#2729#0" expanded="false" />
-                <marker date="1508567965279" expanded="true" signature="764:793" ph="..." />
+                <element signature="e#1380#1621#0" expanded="false" />
+                <marker date="1508624322591" expanded="true" signature="744:773" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="parameterTuning.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Synthetic_data_solution.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Synthetic_data_solution.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1281">
+              <caret line="61" column="76" lean-forward="false" selection-start-line="61" selection-start-column="76" selection-end-line="61" selection-end-column="76" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="parameterTuning.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/parameterTuning.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="44" column="0" lean-forward="true" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+            <state relative-caret-position="525">
+              <caret line="172" column="45" lean-forward="true" selection-start-line="171" selection-start-column="50" selection-end-line="172" selection-end-column="45" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
-                <element signature="e#2538#3624#0" expanded="false" />
-                <element signature="e#3934#5625#0" expanded="false" />
-                <element signature="e#3969#5597#0" expanded="false" />
-                <element signature="e#8018#8992#0" expanded="false" />
-                <element signature="e#9396#10379#0" expanded="false" />
-                <element signature="e#10720#11637#0" expanded="false" />
+                <element signature="e#3931#5622#0" expanded="false" />
+                <element signature="e#3966#5594#0" expanded="false" />
+                <element signature="e#8012#8986#0" expanded="false" />
+                <element signature="e#9390#10373#0" expanded="false" />
+                <element signature="e#10714#11631#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -56,8 +65,8 @@
       <file leaf-file-name="gradientDescent.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gradientDescent.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" column="22" lean-forward="true" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="22" />
+            <state relative-caret-position="1890">
+              <caret line="91" column="16" lean-forward="false" selection-start-line="91" selection-start-column="16" selection-end-line="91" selection-end-column="16" />
               <folding>
                 <element signature="e#1#19#0" expanded="true" />
               </folding>
@@ -65,15 +74,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="389">
-              <caret line="225" column="0" lean-forward="true" selection-start-line="225" selection-start-column="0" selection-end-line="225" selection-end-column="0" />
+            <state relative-caret-position="7182">
+              <caret line="382" column="26" lean-forward="false" selection-start-line="382" selection-start-column="26" selection-end-line="382" selection-end-column="26" />
               <folding>
-                <element signature="e#2826#6103#0" expanded="false" />
-                <element signature="e#6581#9112#0" expanded="false" />
-                <marker date="1508568508986" expanded="true" signature="2889:5478" ph="..." />
+                <element signature="e#6088#8619#0" expanded="false" />
+                <marker date="1508625805843" expanded="true" signature="2917:4945" ph="..." />
               </folding>
             </state>
           </provider>
@@ -90,19 +98,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>np.dot</find>
-      <find>training_closed_form</find>
-      <find>sgd</find>
-      <find>gradientDescent</find>
-      <find>training_closed_form_for_multiple_lamda_basis_functions</find>
-      <find>training_GradientDescent_for_multiple_lamda_basis_functions</find>
-      <find>training_closed_form_for_multiple_lamda_basis_functions_syn</find>
-      <find>training_GradientDescent_for_multiple_lamda_basis_functions_syn</find>
-      <find>read_data_file_synthetic</find>
-      <find>random_shuffle_dataset</find>
-      <find>k_means_clusters</find>
-      <find>`</find>
-      <find>troa;`</find>
       <find>train_closed_form_letor</find>
       <find>train_GradientDescent_letor</find>
       <find>train_closed_form_synthetic_data</find>
@@ -113,14 +108,28 @@
       <find>design_matrix_train_syn_GradientDescent</find>
       <find>sigma_inv_syn_GradientDescent</find>
       <find>stochastic_gradient_solution</find>
+      <find>error_iteration</find>
+      <find>design_matrix_train</find>
+      <find>training_labels</find>
+      <find>skip_training_data</find>
+      <find>split_training_data</find>
+      <find>training_data</find>
+      <find>TrainingData</find>
+      <find>valid_data</find>
+      <find>Valid_labels</find>
+      <find>test_data</find>
+      <find>test_labels</find>
+      <find>TrainingSets</find>
+      <find>TrainingLabels</find>
+      <find>ValidationSets</find>
+      <find>testSet</find>
+      <find>sigma_inv_cf</find>
+      <find>output_vec</find>
+      <find>design_matrix_validation_GradientDescent</find>
+      <find>rmse_validation_GradientDescent</find>
+      <find>weights</find>
     </findStrings>
     <replaceStrings>
-      <replace>GradientDescent</replace>
-      <replace>taskOne_Tuning</replace>
-      <replace>Tuning2</replace>
-      <replace>Tuning3</replace>
-      <replace>Tuning4</replace>
-      <replace>readFile</replace>
       <replace>shuffle</replace>
       <replace>performanceCF_LETR</replace>
       <replace>performanceGD_LETR</replace>
@@ -132,6 +141,25 @@
       <replace>DM_Training_Task4</replace>
       <replace>InverseSig_Task4</replace>
       <replace>SGD_sol</replace>
+      <replace>RMSE_records</replace>
+      <replace>DM_Training</replace>
+      <replace>TrainingLabels</replace>
+      <replace>partition</replace>
+      <replace>TrainingData</replace>
+      <replace>TrainingSets</replace>
+      <replace>ValidationSets</replace>
+      <replace>validationLabels</replace>
+      <replace>testSet</replace>
+      <replace>testLabels</replace>
+      <replace>trainingSets</replace>
+      <replace>trainingLabels</replace>
+      <replace>validationSets</replace>
+      <replace>testSets</replace>
+      <replace>sigmaInv_closedForm</replace>
+      <replace>output</replace>
+      <replace>DM_validation_GD</replace>
+      <replace>rmse_validation_GD</replace>
+      <replace>currWeight</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -147,14 +175,14 @@
         <option value="$PROJECT_DIR$/Synthetic_data_solution.py" />
         <option value="$PROJECT_DIR$/cudaMatrixMultiplication.py" />
         <option value="$PROJECT_DIR$/cudaTester.py" />
-        <option value="$PROJECT_DIR$/trial.py" />
         <option value="$PROJECT_DIR$/jaja.py" />
         <option value="$PROJECT_DIR$/cudaTest.py" />
         <option value="$PROJECT_DIR$/parameterTuning.py" />
         <option value="$PROJECT_DIR$/adadeltaTest.py" />
+        <option value="$PROJECT_DIR$/trial.py" />
         <option value="$PROJECT_DIR$/Solutions.py" />
-        <option value="$PROJECT_DIR$/gradientDescent.py" />
         <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/gradientDescent.py" />
       </list>
     </option>
   </component>
@@ -178,6 +206,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -195,11 +224,10 @@
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Color Scheme Font" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -234,21 +262,6 @@
       <option name="_new_regexPattern" value="&quot;&quot;" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
       <option name="_new_target" value="&quot;$PROJECT_DIR$/cudaTest.py&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
-    </configuration>
-    <configuration name="Nosetests in cudaTester.py" type="tests" factoryName="Nosetests" temporary="true" nameIsGenerated="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="LeToR_" />
-      <option name="_new_regexPattern" value="&quot;&quot;" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/cudaTester.py&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
     </configuration>
     <configuration name="Nosetests in trial.py" type="tests" factoryName="Nosetests" temporary="true" nameIsGenerated="true">
@@ -437,20 +450,37 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
+    <configuration name="trial" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="LeToR_" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/trial.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+    </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Python.main" />
-      <item index="1" class="java.lang.String" itemvalue="Python tests.Nosetests in cudaTester.py" />
-      <item index="2" class="java.lang.String" itemvalue="Python tests.Nosetests in trial.py" />
-      <item index="3" class="java.lang.String" itemvalue="Python tests.Nosetests in cudaTest.py" />
-      <item index="4" class="java.lang.String" itemvalue="Python.adadeltaTest" />
+      <item index="1" class="java.lang.String" itemvalue="Python tests.Nosetests in trial.py" />
+      <item index="2" class="java.lang.String" itemvalue="Python tests.Nosetests in cudaTest.py" />
+      <item index="3" class="java.lang.String" itemvalue="Python.adadeltaTest" />
+      <item index="4" class="java.lang.String" itemvalue="Python.trial" />
     </list>
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Python.main" />
-        <item index="1" class="java.lang.String" itemvalue="Python.adadeltaTest" />
-        <item index="2" class="java.lang.String" itemvalue="Python tests.Nosetests in cudaTest.py" />
-        <item index="3" class="java.lang.String" itemvalue="Python tests.Nosetests in trial.py" />
-        <item index="4" class="java.lang.String" itemvalue="Python tests.Nosetests in cudaTester.py" />
+        <item index="1" class="java.lang.String" itemvalue="Python.trial" />
+        <item index="2" class="java.lang.String" itemvalue="Python.adadeltaTest" />
+        <item index="3" class="java.lang.String" itemvalue="Python tests.Nosetests in cudaTest.py" />
+        <item index="4" class="java.lang.String" itemvalue="Python tests.Nosetests in trial.py" />
       </list>
     </recent_temporary>
   </component>
@@ -489,7 +519,14 @@
       <option name="project" value="LOCAL" />
       <updated>1508551147315</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Updated 2 approaches: traditional SGD, and SGD with momentum.">
+      <created>1508568604918</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1508568604918</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -526,17 +563,18 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.08863275" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.089825116" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3891097" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32901135" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3891097" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42058346" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.07790143" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32734376" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27890626" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -579,14 +617,15 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Mostly done, need to revise K-Means, and implement a different GradientDescent Method" />
     <MESSAGE value="Multiplication of matrix on GPU, tester" />
-    <option name="LAST_COMMIT_MESSAGE" value="Multiplication of matrix on GPU, tester" />
+    <MESSAGE value="Updated 2 approaches: traditional SGD, and SGD with momentum." />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated 2 approaches: traditional SGD, and SGD with momentum." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Solutions.py</url>
-          <line>86</line>
+          <line>87</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -634,30 +673,24 @@
           <line>268</line>
           <option name="timeStamp" value="38" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/main.py</url>
+          <line>419</line>
+          <option name="timeStamp" value="39" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="39" />
+      <option name="time" value="40" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/gradientDescent.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="663">
-          <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
-          <folding>
-            <element signature="e#1#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4998">
           <caret line="417" column="0" lean-forward="false" selection-start-line="417" selection-start-column="0" selection-end-line="417" selection-end-column="0" />
           <folding>
-            <element signature="e#2826#6103#0" expanded="false" />
-            <element signature="e#6581#9112#0" expanded="false" />
-            <marker date="1508568508986" expanded="true" signature="2889:5478" ph="..." />
+            <element signature="e#6088#8619#0" expanded="false" />
+            <marker date="1508625805843" expanded="true" signature="2917:4945" ph="..." />
           </folding>
         </state>
       </provider>
@@ -668,12 +701,11 @@
           <caret line="46" column="0" lean-forward="false" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
-            <element signature="e#2538#3624#0" expanded="false" />
-            <element signature="e#3934#5625#0" expanded="false" />
-            <element signature="e#3969#5597#0" expanded="false" />
-            <element signature="e#8018#8992#0" expanded="false" />
-            <element signature="e#9396#10379#0" expanded="false" />
-            <element signature="e#10720#11637#0" expanded="false" />
+            <element signature="e#3931#5622#0" expanded="false" />
+            <element signature="e#3966#5594#0" expanded="false" />
+            <element signature="e#8012#8986#0" expanded="false" />
+            <element signature="e#9390#10373#0" expanded="false" />
+            <element signature="e#10714#11631#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -684,9 +716,8 @@
           <caret line="15" column="22" lean-forward="false" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
-            <element signature="e#1414#1655#0" expanded="false" />
-            <element signature="e#1821#2729#0" expanded="false" />
-            <marker date="1508567965279" expanded="true" signature="764:793" ph="..." />
+            <element signature="e#1380#1621#0" expanded="false" />
+            <marker date="1508624322591" expanded="true" signature="744:773" ph="..." />
           </folding>
         </state>
       </provider>
@@ -696,9 +727,8 @@
         <state relative-caret-position="7072">
           <caret line="416" column="0" lean-forward="false" selection-start-line="416" selection-start-column="0" selection-end-line="416" selection-end-column="0" />
           <folding>
-            <element signature="e#2826#6103#0" expanded="false" />
-            <element signature="e#6581#9112#0" expanded="false" />
-            <marker date="1508568508986" expanded="true" signature="2889:5478" ph="..." />
+            <element signature="e#6088#8619#0" expanded="false" />
+            <marker date="1508625805843" expanded="true" signature="2917:4945" ph="..." />
           </folding>
         </state>
       </provider>
@@ -709,9 +739,8 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
-            <element signature="e#1414#1655#0" expanded="false" />
-            <element signature="e#1821#2729#0" expanded="false" />
-            <marker date="1508567965279" expanded="true" signature="764:793" ph="..." />
+            <element signature="e#1380#1621#0" expanded="false" />
+            <marker date="1508624322591" expanded="true" signature="744:773" ph="..." />
           </folding>
         </state>
       </provider>
@@ -721,9 +750,8 @@
         <state relative-caret-position="323">
           <caret line="19" column="41" lean-forward="false" selection-start-line="19" selection-start-column="41" selection-end-line="19" selection-end-column="41" />
           <folding>
-            <element signature="e#2826#6103#0" expanded="false" />
-            <element signature="e#6581#9112#0" expanded="false" />
-            <marker date="1508568508986" expanded="true" signature="2889:5478" ph="..." />
+            <element signature="e#6088#8619#0" expanded="false" />
+            <marker date="1508625805843" expanded="true" signature="2917:4945" ph="..." />
           </folding>
         </state>
       </provider>
@@ -741,9 +769,8 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
-            <element signature="e#1414#1655#0" expanded="false" />
-            <element signature="e#1821#2729#0" expanded="false" />
-            <marker date="1508567965279" expanded="true" signature="764:793" ph="..." />
+            <element signature="e#1380#1621#0" expanded="false" />
+            <marker date="1508624322591" expanded="true" signature="744:773" ph="..." />
           </folding>
         </state>
       </provider>
@@ -753,9 +780,8 @@
         <state relative-caret-position="323">
           <caret line="19" column="41" lean-forward="true" selection-start-line="19" selection-start-column="41" selection-end-line="19" selection-end-column="41" />
           <folding>
-            <element signature="e#2826#6103#0" expanded="false" />
-            <element signature="e#6581#9112#0" expanded="false" />
-            <marker date="1508568508986" expanded="true" signature="2889:5478" ph="..." />
+            <element signature="e#6088#8619#0" expanded="false" />
+            <marker date="1508625805843" expanded="true" signature="2917:4945" ph="..." />
           </folding>
         </state>
       </provider>
@@ -773,9 +799,8 @@
           <caret line="8" column="16" lean-forward="false" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
-            <element signature="e#1414#1655#0" expanded="false" />
-            <element signature="e#1821#2729#0" expanded="false" />
-            <marker date="1508567965279" expanded="true" signature="764:793" ph="..." />
+            <element signature="e#1380#1621#0" expanded="false" />
+            <marker date="1508624322591" expanded="true" signature="744:773" ph="..." />
           </folding>
         </state>
       </provider>
@@ -785,9 +810,8 @@
         <state relative-caret-position="5780">
           <caret line="340" column="0" lean-forward="false" selection-start-line="340" selection-start-column="0" selection-end-line="340" selection-end-column="0" />
           <folding>
-            <element signature="e#2826#6103#0" expanded="false" />
-            <element signature="e#6581#9112#0" expanded="false" />
-            <marker date="1508568508986" expanded="true" signature="2889:5478" ph="..." />
+            <element signature="e#6088#8619#0" expanded="false" />
+            <marker date="1508625805843" expanded="true" signature="2917:4945" ph="..." />
           </folding>
         </state>
       </provider>
@@ -805,9 +829,8 @@
           <caret line="8" column="16" lean-forward="false" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
-            <element signature="e#1414#1655#0" expanded="false" />
-            <element signature="e#1821#2729#0" expanded="false" />
-            <marker date="1508567965279" expanded="true" signature="764:793" ph="..." />
+            <element signature="e#1380#1621#0" expanded="false" />
+            <marker date="1508624322591" expanded="true" signature="744:773" ph="..." />
           </folding>
         </state>
       </provider>
@@ -818,9 +841,8 @@
         <state relative-caret-position="5729">
           <caret line="337" column="0" lean-forward="true" selection-start-line="337" selection-start-column="0" selection-end-line="337" selection-end-column="0" />
           <folding>
-            <element signature="e#2826#6103#0" expanded="false" />
-            <element signature="e#6581#9112#0" expanded="false" />
-            <marker date="1508568508986" expanded="true" signature="2889:5478" ph="..." />
+            <element signature="e#6088#8619#0" expanded="false" />
+            <marker date="1508625805843" expanded="true" signature="2917:4945" ph="..." />
           </folding>
         </state>
       </provider>
@@ -831,9 +853,8 @@
           <caret line="8" column="16" lean-forward="true" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
-            <element signature="e#1414#1655#0" expanded="false" />
-            <element signature="e#1821#2729#0" expanded="false" />
-            <marker date="1508567965279" expanded="true" signature="764:793" ph="..." />
+            <element signature="e#1380#1621#0" expanded="false" />
+            <marker date="1508624322591" expanded="true" signature="744:773" ph="..." />
           </folding>
         </state>
       </provider>
@@ -843,9 +864,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#2826#6103#0" expanded="false" />
-            <element signature="e#6581#9112#0" expanded="false" />
-            <marker date="1508568508986" expanded="true" signature="2889:5478" ph="..." />
+            <element signature="e#6088#8619#0" expanded="false" />
+            <marker date="1508625805843" expanded="true" signature="2917:4945" ph="..." />
           </folding>
         </state>
       </provider>
@@ -864,9 +884,8 @@
           <caret line="62" column="13" lean-forward="false" selection-start-line="62" selection-start-column="13" selection-end-line="62" selection-end-column="13" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
-            <element signature="e#1414#1655#0" expanded="false" />
-            <element signature="e#1821#2729#0" expanded="false" />
-            <marker date="1508567965279" expanded="true" signature="764:793" ph="..." />
+            <element signature="e#1380#1621#0" expanded="false" />
+            <marker date="1508624322591" expanded="true" signature="744:773" ph="..." />
           </folding>
         </state>
       </provider>
@@ -929,7 +948,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1523">
           <caret line="3727" column="8" lean-forward="false" selection-start-line="3727" selection-start-column="8" selection-end-line="3727" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -955,7 +973,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/cudaMatrixMultiplication.py" />
-    <entry file="file://$PROJECT_DIR$/trial.py" />
     <entry file="file://D:/Anaconda/Lib/imp.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="410">
@@ -992,38 +1009,57 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Synthetic_data_solution.py">
+    <entry file="file://$PROJECT_DIR$/adadeltaTest.py" />
+    <entry file="file://$PROJECT_DIR$/trial.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="84">
+          <caret line="4" column="11" lean-forward="false" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/adadeltaTest.py">
+    <entry file="file://$PROJECT_DIR$/Synthetic_data_solution.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="1" lean-forward="true" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
+        <state relative-caret-position="1281">
+          <caret line="61" column="76" lean-forward="false" selection-start-line="61" selection-start-column="76" selection-end-line="61" selection-end-column="76" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Solutions.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="36" lean-forward="true" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
+        <state relative-caret-position="4410">
+          <caret line="218" column="43" lean-forward="false" selection-start-line="218" selection-start-column="43" selection-end-line="218" selection-end-column="43" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
-            <element signature="e#1414#1655#0" expanded="false" />
-            <element signature="e#1821#2729#0" expanded="false" />
-            <marker date="1508567965279" expanded="true" signature="764:793" ph="..." />
+            <element signature="e#1380#1621#0" expanded="false" />
+            <marker date="1508624322591" expanded="true" signature="744:773" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7182">
+          <caret line="382" column="26" lean-forward="false" selection-start-line="382" selection-start-column="26" selection-end-line="382" selection-end-column="26" />
+          <folding>
+            <element signature="e#6088#8619#0" expanded="false" />
+            <marker date="1508625805843" expanded="true" signature="2917:4945" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Anaconda/Lib/site-packages/matplotlib/axes/_base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="1639" column="0" lean-forward="false" selection-start-line="1639" selection-start-column="0" selection-end-line="1639" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/gradientDescent.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="22" lean-forward="true" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="22" />
+        <state relative-caret-position="1890">
+          <caret line="91" column="16" lean-forward="false" selection-start-line="91" selection-start-column="16" selection-end-line="91" selection-end-column="16" />
           <folding>
             <element signature="e#1#19#0" expanded="true" />
           </folding>
@@ -1032,28 +1068,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/parameterTuning.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="44" column="0" lean-forward="true" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+        <state relative-caret-position="525">
+          <caret line="172" column="45" lean-forward="true" selection-start-line="171" selection-start-column="50" selection-end-line="172" selection-end-column="45" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
-            <element signature="e#2538#3624#0" expanded="false" />
-            <element signature="e#3934#5625#0" expanded="false" />
-            <element signature="e#3969#5597#0" expanded="false" />
-            <element signature="e#8018#8992#0" expanded="false" />
-            <element signature="e#9396#10379#0" expanded="false" />
-            <element signature="e#10720#11637#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="389">
-          <caret line="225" column="0" lean-forward="true" selection-start-line="225" selection-start-column="0" selection-end-line="225" selection-end-column="0" />
-          <folding>
-            <element signature="e#2826#6103#0" expanded="false" />
-            <element signature="e#6581#9112#0" expanded="false" />
-            <marker date="1508568508986" expanded="true" signature="2889:5478" ph="..." />
+            <element signature="e#3931#5622#0" expanded="false" />
+            <element signature="e#3966#5594#0" expanded="false" />
+            <element signature="e#8012#8986#0" expanded="false" />
+            <element signature="e#9390#10373#0" expanded="false" />
+            <element signature="e#10714#11631#0" expanded="false" />
           </folding>
         </state>
       </provider>

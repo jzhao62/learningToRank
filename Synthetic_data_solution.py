@@ -5,7 +5,7 @@ import numpy as np
 #
 #
 # #
-# # def closedForm_weightTraining(train_data, training_labels,lamda, num_basis):
+# # def closedForm_weightTraining(train_data, trainingLabels,lamda, num_basis):
 # #     variance = train_data.var(axis=0)
 # #     sigma = variance * np.identity(len(train_data[0]))
 # #     sigma = sigma + lamda * np.identity(len(train_data[0]))
@@ -14,7 +14,7 @@ import numpy as np
 # #     # rand_indices = np.random.randint(0, len(train_data), size=(1,num_basis))
 # #
 # #     # rand_centers = []
-# #     rand_centers = k_means_clusters(train_data, training_labels, num_basis)
+# #     rand_centers = k_means_clusters(train_data, trainingLabels, num_basis)
 # #     # for i in range(len(rand_indices[0])):
 # #     #     index = rand_indices[0][i]
 # #     #     rand_centers.append(train_data[index])
@@ -37,11 +37,11 @@ import numpy as np
 # #     regularisation_mat = lamda * np.identity(num_basis)
 # #     pinv_temp = np.dot(design_matrix_trans, design_matrix) + regularisation_mat
 # #     pinv = np.linalg.inv(pinv_temp)
-# #     out_temp = np.dot(design_matrix_trans, training_labels)
+# #     out_temp = np.dot(design_matrix_trans, trainingLabels)
 # #     weights = np.dot(pinv, out_temp)
 # #
 # #     predicted_output = np.dot(weights, design_matrix_trans)
-# #     sq_error_sum = np.sum(np.square(training_labels - predicted_output))
+# #     sq_error_sum = np.sum(np.square(trainingLabels - predicted_output))
 # #
 # #     train_error = np.sqrt(float(sq_error_sum)/len(train_data))
 # #     return design_matrix, rand_centers, sigma_inv, weights, train_error
@@ -50,16 +50,16 @@ import numpy as np
 #     in_filename = 'input.csv'
 #     out_filename = 'output.csv'
 #     feature_mat, output_labels = read_data_file(in_filename, out_filename)
-#     training_data, training_labels, valid_data, valid_labels, test_data, test_labels = split_training_data(feature_mat, output_labels, 0.8, 0.1)
-#     print training_data.shape, valid_data.shape, test_data.shape
+#     trainingSets, trainingLabels, validationSets, validationLabels, testSets, testLabels = partition(feature_mat, output_labels, 0.8, 0.1)
+#     print trainingSets.shape, validationSets.shape, testSets.shape
 #     for num_basis in range(2, 11):
 #         print "Num Basis Functions: ", num_basis
-#         design_matrix, rbf_centers, sigma_inv, weights, rmse_train = closedForm_weightTraining(training_data, training_labels, 0.3, num_basis)
-#         rmse_validation = closed_form_solution_validation_phase(valid_data, valid_labels, weights, sigma_inv, rbf_centers, num_basis)
+#         design_matrix, rbf_centers, sigma_inv, weights, rmse_train = closedForm_weightTraining(trainingSets, trainingLabels, 0.3, num_basis)
+#         rmse_validation = closed_form_solution_validation_phase(validationSets, validationLabels, weights, sigma_inv, rbf_centers, num_basis)
 #         # print "Weights: ", weights
 #         print "RMSE Train: ", rmse_train
 #         print "RMSE Validation: ", rmse_validation
-#         print closed_form_solution_validation_phase(test_data, test_labels, weights, sigma_inv, rbf_centers, num_basis)
+#         print closed_form_solution_validation_phase(testSets, testLabels, weights, sigma_inv, rbf_centers, num_basis)
 
 #
 # main()
