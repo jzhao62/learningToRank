@@ -6,7 +6,9 @@ from accelerate.cuda.blas import Blas
 import numba.cuda.api,numba.cuda.cudadrv.libs
 import numpy as np
 from timeit import default_timer as timer
-
+'''
+Test for CUDA with GPU, dont touch it
+'''
 def gemm(A,B,dD):
     N=A.shape[0] #square matrices
     '''

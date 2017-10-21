@@ -2,23 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5e4ed871-1611-4b2f-98c4-cc05d3a02a51" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/Querylevelnorm_X.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/Querylevelnorm_t.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gradientDescent.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jaja.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/parameterTuning.py" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/LeToR_Linear_Regression.ipynb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Querylevelnorm.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/README.md" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/closed_form_sgd_util.py" afterPath="$PROJECT_DIR$/Solutions.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/data/Synthetic_Dataset/input.csv" afterPath="$PROJECT_DIR$/data/input.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/data/Synthetic_Dataset/output.csv" afterPath="$PROJECT_DIR$/data/output.csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/LeToR_.iml" afterPath="$PROJECT_DIR$/.idea/LeToR_.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Synthetic_data_solution.py" afterPath="$PROJECT_DIR$/Synthetic_data_solution.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/kmeans_implement.py" afterPath="$PROJECT_DIR$/kmeans_implement.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.py" afterPath="$PROJECT_DIR$/main.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cudaTest.py" afterPath="$PROJECT_DIR$/cudaTest.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -32,7 +17,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Solutions.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Solutions.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Solutions.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="270">
@@ -44,6 +29,26 @@
                 <element signature="e#1821#2729#0" expanded="false" />
                 <marker date="1508550915169" expanded="true" signature="764:793" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cudaTest.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/cudaTest.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="9" column="17" lean-forward="true" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Synthetic_data_solution.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Synthetic_data_solution.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -153,6 +158,7 @@
         <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/parameterTuning.py" />
         <option value="$PROJECT_DIR$/Solutions.py" />
+        <option value="$PROJECT_DIR$/cudaTest.py" />
       </list>
     </option>
   </component>
@@ -219,6 +225,21 @@
     </option>
   </component>
   <component name="RunManager" selected="Python.main">
+    <configuration name="Nosetests in cudaTest.py" type="tests" factoryName="Nosetests" temporary="true" nameIsGenerated="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="LeToR_" />
+      <option name="_new_regexPattern" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/cudaTest.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+    </configuration>
     <configuration name="Nosetests in cudaTester.py" type="tests" factoryName="Nosetests" temporary="true" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -232,21 +253,6 @@
       <option name="_new_regexPattern" value="&quot;&quot;" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
       <option name="_new_target" value="&quot;$PROJECT_DIR$/cudaTester.py&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
-    </configuration>
-    <configuration name="Nosetests in jaja.py" type="tests" factoryName="Nosetests" temporary="true" nameIsGenerated="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="LeToR_" />
-      <option name="_new_regexPattern" value="&quot;&quot;" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/jaja.py&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
     </configuration>
     <configuration name="Nosetests in trial.py" type="tests" factoryName="Nosetests" temporary="true" nameIsGenerated="true">
@@ -440,12 +446,12 @@
       <item index="1" class="java.lang.String" itemvalue="Python.cudaMatrixMultiplication" />
       <item index="2" class="java.lang.String" itemvalue="Python tests.Nosetests in cudaTester.py" />
       <item index="3" class="java.lang.String" itemvalue="Python tests.Nosetests in trial.py" />
-      <item index="4" class="java.lang.String" itemvalue="Python tests.Nosetests in jaja.py" />
+      <item index="4" class="java.lang.String" itemvalue="Python tests.Nosetests in cudaTest.py" />
     </list>
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Python.main" />
-        <item index="1" class="java.lang.String" itemvalue="Python tests.Nosetests in jaja.py" />
+        <item index="1" class="java.lang.String" itemvalue="Python tests.Nosetests in cudaTest.py" />
         <item index="2" class="java.lang.String" itemvalue="Python tests.Nosetests in trial.py" />
         <item index="3" class="java.lang.String" itemvalue="Python tests.Nosetests in cudaTester.py" />
         <item index="4" class="java.lang.String" itemvalue="Python.cudaMatrixMultiplication" />
@@ -466,6 +472,21 @@
       <option name="presentableId" value="Default" />
       <updated>1506555057938</updated>
     </task>
+    <task id="LOCAL-00001" summary="Mostly done, need to revise K-Means, and implement a different GradientDescent Method">
+      <created>1508550944881</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1508550944881</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Mostly done, need to revise K-Means, and implement a different GradientDescent Method">
+      <created>1508551052724</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1508551052724</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -502,8 +523,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18044515" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18044515" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296875" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -552,6 +574,10 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Mostly done, need to revise K-Means, and implement a different GradientDescent Method" />
+    <option name="LAST_COMMIT_MESSAGE" value="Mostly done, need to revise K-Means, and implement a different GradientDescent Method" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
@@ -571,13 +597,13 @@
           <option name="timeStamp" value="25" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/jaja.py</url>
-          <line>54</line>
+          <url>file://$PROJECT_DIR$/cudaTest.py</url>
+          <line>56</line>
           <option name="timeStamp" value="32" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/jaja.py</url>
-          <line>42</line>
+          <url>file://$PROJECT_DIR$/cudaTest.py</url>
+          <line>44</line>
           <option name="timeStamp" value="33" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -854,13 +880,6 @@
     <entry file="file://$PROJECT_DIR$/LeToR_Linear_Regression.ipynb" />
     <entry file="file://$PROJECT_DIR$/README.md" />
     <entry file="file://$PROJECT_DIR$/gradientDescent" />
-    <entry file="file://$PROJECT_DIR$/Synthetic_data_solution.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="623">
-          <caret line="59" column="42" lean-forward="true" selection-start-line="59" selection-start-column="42" selection-end-line="59" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/kmeans_implement.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -879,6 +898,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="10" lean-forward="false" selection-start-line="0" selection-start-column="10" selection-end-line="0" selection-end-column="10" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -886,6 +906,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="1" lean-forward="true" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -893,6 +914,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="41" lean-forward="false" selection-start-line="0" selection-start-column="41" selection-end-line="0" selection-end-column="41" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -956,14 +978,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/jaja.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="569">
-          <caret line="38" column="3" lean-forward="false" selection-start-line="38" selection-start-column="3" selection-end-line="38" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_imps/_pydev_execfile.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
@@ -1021,6 +1035,22 @@
             <element signature="e#1821#2729#0" expanded="false" />
             <marker date="1508550915169" expanded="true" signature="764:793" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Synthetic_data_solution.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cudaTest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="9" column="17" lean-forward="true" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+          <folding />
         </state>
       </provider>
     </entry>
