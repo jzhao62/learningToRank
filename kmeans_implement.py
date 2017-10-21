@@ -24,6 +24,7 @@ def kmeans(data, k=None, centroids=None, steps=20):
 
     cluster_centers = []
     for _ in range(max(steps, 1)):
+
         # Squared distances between each point and each centroid.
         sqdists = scipy.spatial.distance.cdist(centroids, data, 'sqeuclidean')
 
