@@ -19,34 +19,31 @@ def performanceCF_LETR(lamda_values,
 
 
     lamda = 0.01
-    num_basis = 30
+    numOfBasisFunction = 30
 
-    design_matrix_train_cf,\
-    sigmaInv_closedForm, \
-    rbf_centers_cf = priorDM(training_data_letor,
-                                                     training_labels_letor,
-                                                     lamda,
-                                                     num_basis)
+    design_matrix_train_cf, sigmaInv_closedForm, rbf_centers_cf = priorDM(training_data_letor,
+                                                                          training_labels_letor,
+                                                                          lamda,numOfBasisFunction)
 
 
     weights_cf,\
-    rmse_train_cf = closedForm_weightTraining(design_matrix_train_cf,
+    rmse_train_cf = cF_weightAdjustment(design_matrix_train_cf,
                                                                     sigmaInv_closedForm,
                                                                     training_labels_letor,
                                                                     lamda,
-                                                                    num_basis)
+                                                                    numOfBasisFunction)
 
 
     design_matrix_validation_cf = resultingDM(valid_data_letor,
                                                             sigmaInv_closedForm,
                                                             rbf_centers_cf,
-                                                            num_basis)
+                                                            numOfBasisFunction)
 
 
     design_matrix_test_cf = resultingDM(test_data_letor,
                                                       sigmaInv_closedForm,
                                                       rbf_centers_cf,
-                                                      num_basis)
+                                                      numOfBasisFunction)
 
 
     rmse_validation_cf = calculate_error(design_matrix_validation_cf,
@@ -91,26 +88,26 @@ def performanceGD_LETR(lamda_values,
 
     ''' The 2 parameters are determined , compute performance'''
     lamda = 0.01
-    num_basis = 11
+    numOfBasisFunction = 11
 
     design_matrix_train_GradientDescent, \
     sigma_inv_GradientDescent, \
     rbf_centers_GradientDescent = priorDM(training_data_letor,
                                           training_labels_letor,lamda,
-                                          num_basis)
+                                          numOfBasisFunction)
 
     weights_GradientDescent,\
     rmse_train_GradientDescent, \
     learning_rate_changes_GradientDescent, \
     error_iteration_letor_GradientDescent = SGD_sol_momentum(design_matrix_train_GradientDescent,
                                                     training_labels_letor,
-                                                    lamda,num_basis)
+                                                    lamda,numOfBasisFunction)
 
 
     DM_validation_GD = resultingDM(valid_data_letor,
                                    sigma_inv_GradientDescent,
                                    rbf_centers_GradientDescent,
-                                   num_basis)
+                                   numOfBasisFunction)
 
 
     rmse_validation_GD = calculate_error(DM_validation_GD,
@@ -122,7 +119,7 @@ def performanceGD_LETR(lamda_values,
     design_matrix_test_GradientDescent = resultingDM(test_data_letor,
                                                        sigma_inv_GradientDescent,
                                                        rbf_centers_GradientDescent,
-                                                       num_basis)
+                                                       numOfBasisFunction)
 
     rmse_test_GradientDescent = calculate_error(design_matrix_test_GradientDescent,
                                     weights_GradientDescent,
@@ -173,22 +170,22 @@ def performanceCF_Syn(lamda_values,
     
     ''' After choosing the best hyperparameters, we fix their values and compute the model performance on test set'''
     lamda = 0.1
-    num_basis = 8
+    numOfBasisFunction = 8
     design_matrix_train_syn_closed, sigma_inv_syn_closed, rbf_centers_syn_closed = priorDM(training_data_syn,
                                                                                                                    training_labels_syn,
                                                                                                                    lamda,
-                                                                                                                   num_basis)
+                                                                                                                   numOfBasisFunction)
 
-    weights_syn_closed, rmse_train_syn_closed= closedForm_weightTraining(design_matrix_train_syn_closed,
+    weights_syn_closed, rmse_train_syn_closed= cF_weightAdjustment(design_matrix_train_syn_closed,
                                                                                    sigma_inv_syn_closed,
                                                                                    training_labels_syn,
                                                                                    lamda,
-                                                                                   num_basis)
+                                                                                   numOfBasisFunction)
 
     design_matrix_validation_syn_closed = resultingDM(valid_data_syn,
                                                                     sigma_inv_syn_closed,
                                                                     rbf_centers_syn_closed,
-                                                                    num_basis)
+                                                                    numOfBasisFunction)
 
     rmse_validation_syn_closed = calculate_error(design_matrix_validation_syn_closed,
                                                  weights_syn_closed,
@@ -197,7 +194,7 @@ def performanceCF_Syn(lamda_values,
     design_matrix_test_syn_closed = resultingDM(test_data_syn,
                                                               sigma_inv_syn_closed,
                                                               rbf_centers_syn_closed,
-                                                              num_basis)
+                                                              numOfBasisFunction)
 
     rmse_test_syn_closed = calculate_error(design_matrix_test_syn_closed, weights_syn_closed, test_labels_syn)
 
@@ -230,14 +227,14 @@ def performanceGD_syn(lamda_values,
 
     ''' After choosing the best hyperparameters, we fix their values and compute the model performance on test set'''
     lamda = 0.1
-    num_basis = 5
+    numOfBasisFunction = 5
 
     DM_Training_Task4,\
     InverseSig_Task4, \
     rbf_centers_syn_GradientDescent = priorDM(training_data_syn,
                                               training_labels_syn,
                                               lamda,
-                                              num_basis)
+                                              numOfBasisFunction)
     '''
     We are testing different gradient descent method here
     '''
@@ -247,14 +244,14 @@ def performanceGD_syn(lamda_values,
     error_iteration_syn_GradientDescent = SGD_sol_momentum(DM_Training_Task4,
                                                   training_labels_syn,
                                                   lamda,
-                                                  num_basis)
+                                                  numOfBasisFunction)
 
 
 
     design_matrix_validation_syn_GradientDescent = resultingDM(valid_data_syn,
                                                                 InverseSig_Task4,
                                                                 rbf_centers_syn_GradientDescent,
-                                                                num_basis)
+                                                                numOfBasisFunction)
 
     rmse_validation_syn_GradientDescent = calculate_error(design_matrix_validation_syn_GradientDescent,
                                                           weights_syn_GradientDescent,
@@ -264,7 +261,7 @@ def performanceGD_syn(lamda_values,
     design_matrix_test_syn_GradientDescent = resultingDM(test_data_syn,
                                                                        InverseSig_Task4,
                                                                        rbf_centers_syn_GradientDescent,
-                                                                       num_basis)
+                                                                       numOfBasisFunction)
 
     rmse_test_syn_GradientDescent = calculate_error(design_matrix_test_syn_GradientDescent,
                                                     weights_syn_GradientDescent,
@@ -302,8 +299,8 @@ def performanceGD_syn(lamda_values,
 def main():
     train_percent = 0.8
     validation_percent = 0.1
-    # lamda_values = [0.001, 0.01, 0.1, 1]
-    lamda_values = [0.001, 0.01]
+    lamda_values = [0.001, 0.01, 0.1, 1]
+    # lamda_values = [0.001, 0.01]
 
 
 
@@ -319,52 +316,52 @@ def main():
     print ("Number of samples in Validation Data: ", len(valid_data_letor))
     print ("Number of samples in Test Data: ", len(test_data_letor))
 
-    error_matrix_letor = {'closed_form':{'train':{}, 'validation':{}}, 'gradientDescent': {'train':{}, 'validation':{}}}
+    error_matrix_letor = {'cf':{'train':{}, 'validation':{}},
+                          'gradientDescent': {'train':{}, 'validation':{}}}
+
+
+    if(True):
+        if(True):
+            print("Tuning Task 1\n")
+            performanceTuning1(lamda_values,
+                                error_matrix_letor,
+                                training_data_letor,
+                                training_labels_letor,
+                                valid_data_letor,
+                                valid_labels_letor,
+                                test_data_letor,
+                                test_labels_letor)
 
 
 
-    if(False):
-        performanceTuning1(lamda_values,
-                            error_matrix_letor,
-                            training_data_letor,
-                            training_labels_letor,
-                            valid_data_letor,
-                            valid_labels_letor,
-                            test_data_letor,
-                            test_labels_letor)
-
-        print("1st complete\n")
-
-    if(False):
-        print("GradientDescent on LeTR")
-        performanceTuning2(lamda_values,
-                       error_matrix_letor,
-                       training_data_letor,
-                       training_labels_letor,
-                       valid_data_letor,
-                       valid_labels_letor,
-                       test_data_letor,
-                       test_labels_letor)
-        print("2nd complete\n")
-
-
-
+        if(False):
+            print("Tuning Task 2\n")
+            performanceTuning2(lamda_values,
+                           error_matrix_letor,
+                           training_data_letor,
+                           training_labels_letor,
+                           valid_data_letor,
+                           valid_labels_letor,
+                           test_data_letor,
+                           test_labels_letor)
 
 
 
 
-    #
-    # performanceCF_LETR(lamda_values,
-    #                         error_matrix_letor,
-    #                         training_data_letor,
-    #                         training_labels_letor,
-    #                         valid_data_letor,
-    #                         valid_labels_letor,
-    #                         test_data_letor,
-    #                         test_labels_letor)
+        if(False):
+            print("performance on Task 1\n")
+            performanceCF_LETR(lamda_values,
+                                        error_matrix_letor,
+                                        training_data_letor,
+                                        training_labels_letor,
+                                        valid_data_letor,
+                                        valid_labels_letor,
+                                        test_data_letor,
+                                        test_labels_letor)
 
-
-    performanceGD_LETR(lamda_values,
+        if (False):
+            print("performance on Task 2\n")
+            performanceGD_LETR(lamda_values,
                     error_matrix_letor,
                     training_data_letor,
                     training_labels_letor,
@@ -393,24 +390,13 @@ def main():
     print ("Number of samples in Validation Data: ", len(valid_data_syn))
     print ("Number of samples in Test Data: ", len(test_data_syn))
 
-    error_matrix_syn = {'closed_form':{'train':{}, 'validation':{}}, 'gradientDescent': {'train':{}, 'validation':{}}}
+    error_matrix_syn = {'cf':{'train':{}, 'validation':{}}, 'gradientDescent': {'train':{}, 'validation':{}}}
 
 
     if(False):
-        '''Tuning Task 3'''
-        performanceTuning3(lamda_values,
-                       error_matrix_syn,
-                       training_data_syn,
-                       training_labels_syn,
-                       valid_data_syn,
-                       valid_labels_syn,
-                       test_data_syn,
-                       test_labels_syn)
-
-    if(False):
-        '''Tuning Task 4'''
-        print("GradientDescent on Syn")
-        performanceTuning4(lamda_values,
+        if(True):
+            '''Tuning Task 3'''
+            performanceTuning3(lamda_values,
                            error_matrix_syn,
                            training_data_syn,
                            training_labels_syn,
@@ -419,27 +405,39 @@ def main():
                            test_data_syn,
                            test_labels_syn)
 
+        if(True):
+            '''Tuning Task 4'''
+            print("GradientDescent on Syn")
+            performanceTuning4(lamda_values,
+                               error_matrix_syn,
+                               training_data_syn,
+                               training_labels_syn,
+                               valid_data_syn,
+                               valid_labels_syn,
+                               test_data_syn,
+                               test_labels_syn)
 
 
-    #  print("Testing Task 3")
-    # performanceCF_Syn(lamda_values,
-    #                                  error_matrix_syn,
-    #                                  training_data_syn,
-    #                                  training_labels_syn,
-    #                                  valid_data_syn,
-    #                                  valid_labels_syn,
-    #                                  test_data_syn,
-    #                                  test_labels_syn)
+        if(True):
+            print("Result on Task 3")
+            performanceCF_Syn(lamda_values,
+                              error_matrix_syn,
+                              training_data_syn,
+                              training_labels_syn,
+                              valid_data_syn,
+                              valid_labels_syn,
+                              test_data_syn,test_labels_syn)
 
-    # print("Testing Task 4")
-    # performanceGD_syn(lamda_values,
-    #                          error_matrix_syn,
-    #                          training_data_syn,
-    #                          training_labels_syn,
-    #                          valid_data_syn,
-    #                          valid_labels_syn,
-    #                          test_data_syn,
-    #                          test_labels_syn)
+        if(True):
+            print("Result onTask 4")
+            performanceGD_syn(lamda_values,
+                                     error_matrix_syn,
+                                     training_data_syn,
+                                     training_labels_syn,
+                                     valid_data_syn,
+                                     valid_labels_syn,
+                                     test_data_syn,
+                                     test_labels_syn)
 
 
 

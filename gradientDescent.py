@@ -13,12 +13,12 @@ w(τ+1) = w(τ) + η(τ) * ((yi − transpose (w(τ)) * ϕ(xi))*ϕ(xi) - λ * w(
 def SGD_sol(DM_Training,
             trainingLabels,
             assignedLearningRate,
-            num_basis):
+            numOfBasisFunction):
 
 
     η = assignedLearningRate
     performanceBenchMark = 1
-    currWeights = np.random.uniform(-1.0,1.0,size=(1,num_basis))[0]
+    currWeights = np.random.uniform(-1.0,1.0,size=(1,numOfBasisFunction))[0]
     ηList = []
     RMSE_records = []
     epochs = 0
@@ -84,7 +84,7 @@ def SGD_sol(DM_Training,
 def SGD_sol_momentum(DM_Training,
             trainingLabels,
             lamda,
-            num_basis):
+            numOfBasisFunction):
 
     # Starting Learning Rate
     η = 1
@@ -92,7 +92,7 @@ def SGD_sol_momentum(DM_Training,
     degrade= 0.8
 
     performanceBenchMark = 1
-    currWeight = np.random.uniform(-1.0,1.0,size=(1,num_basis))[0]
+    currWeight = np.random.uniform(-1.0,1.0,size=(1,numOfBasisFunction))[0]
     ηList = []
     RMSE_records = []
     epochs = 0

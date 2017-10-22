@@ -83,64 +83,38 @@ def partition(input_matrix,
 
     return np.array(trainingSets), np.array(trainingLabels), np.array(validationSets), np.array(validationLabels), np.array(testSets), np.array(testLabels)
 
-def k_means_clusters(train_data,
+def generateKclusters(train_data,
                      trainingLabels,
-                     num_basis):
-    try:
-        kmeans = KMeans(n_clusters=num_basis, random_state=0).fit(train_data)
-        labels = kmeans.labels_
-        cluster_centers = kmeans.cluster_centers_
-    except Exception as e:
-        print ("Error: ", str(e))
-        from kmeans_implement import kmeans
-        cluster_centers = kmeans(train_data, k=num_basis)
+                     numOfBasisFunction):
+
+    kmeans = KMeans(n_clusters=numOfBasisFunction, random_state=0).fit(train_data)
+    cluster_centers = kmeans.cluster_centers_
     return cluster_centers
-
-
-
-# could be used to track K means training
-# def k_means_clusters(train_data, trainingLabels, num_basis):
-#     kmeans = KMeans(n_clusters=num_basis, random_state=0).fit(train_data)
-#     labels = kmeans.labels_
-#     cluster_centers = kmeans.cluster_centers_
-#     clusters = {}
-#     for i in range(num_basis):
-#         clusters[i] = {'train_data':[], 'output' : [], 'center' : cluster_centers[i]}
-#
-#         for j in range(len(train_data)):
-#             if labels[j] == i:
-#                 clusters[i]['train_data'].append(train_data[j])
-#                 clusters[i]['output'].append(trainingLabels[j])
-#
-#     for i in range(num_basis):
-#         print(i, len(clusters[i]['train_data']))
-#
-#     return cluster_centers
 
 
 
 '''
 Create Closed Form DM based on training data, 
 the resulting inverse sigma, and random centers are used to create DM for validation and test sets
-
-
 '''
 def priorDM(train_data,
-                                    trainingLabels,
-                                    lamda,
-                                    num_basis):
+            trainingLabels,
+            lamda,
+            numOfBasisFunction):
 
     variance = train_data.var(axis=0) 
     sigma = variance * np.identity(len(train_data[0]))
     sigma = sigma + 0.001 * np.identity(len(train_data[0])) # Add a small quantity to avoid 0 values in variance matrix.
     sigma_inv = np.linalg.inv(sigma)
 
-    rand_centers = k_means_clusters(train_data, trainingLabels, num_basis)
+    rand_centers = generateKclusters(train_data,
+                                     trainingLabels,
+                                     numOfBasisFunction)
     rand_centers = np.array(rand_centers)
-    design_matrix=np.zeros((len(train_data),num_basis));
+    design_matrix=np.zeros((len(train_data),numOfBasisFunction));
 
     for i in range(len(train_data)):
-        for j in range(num_basis):
+        for j in range(numOfBasisFunction):
             if j==0:
                 design_matrix[i][j] = 1;
             else:
@@ -163,11 +137,11 @@ the resulting inverse sigma, and random centers are used to create DM for valida
 def resultingDM(data,
                 sigma_inv,
                 rand_centers,
-                num_basis):
+                numOfBasisFunction):
 
-    design_matrix = np.zeros((len(data),num_basis))
+    design_matrix = np.zeros((len(data),numOfBasisFunction))
     for i in range(len(data)):
-        for j in range(num_basis):
+        for j in range(numOfBasisFunction):
             if j==0:
                 design_matrix[i][j] = 1;
             else:
@@ -184,13 +158,12 @@ def resultingDM(data,
  w∗ = inv((λI + transpose(Φ) * Φ))* transpose(Φ)*y , nothing too complex
 '''
 
-def closedForm_weightTraining(Φ,
-                              sigma_inv,
-                              trainingLabels,
-                              reg,
-                              num_basis):
+def cF_weightAdjustment(Φ, sigma_inv,
+                        trainingLabels,
+                        reg,
+                        numOfBasisFunction):
     Φ_trans = Φ.transpose()
-    λ= reg * np.identity(num_basis)
+    λ= reg * np.identity(numOfBasisFunction)
 
     firstHalf= np.linalg.inv(λ + np.dot(Φ_trans, Φ))
     secondHalf= np.dot(Φ_trans, trainingLabels)
@@ -198,35 +171,5 @@ def closedForm_weightTraining(Φ,
     weights = np.dot(firstHalf, secondHalf)
     trainingLoss = calculate_error(Φ, weights, trainingLabels)
     return weights, trainingLoss
-
-
-
-
-
-# def closed_form_solution_validation_phase(validationSets, validationLabels, weights, sigma_inv, rand_centers,num_basis):
-#     valid_design_matrix=np.zeros((len(validationSets),num_basis));
-#     for i in range(len(validationSets)):
-#         for j in range(num_basis):
-#             if j==0:
-#                 valid_design_matrix[i][j] = 1;
-#             else:
-#                 x_mu = validationSets[i]-rand_centers[j]
-#                 x_mu_trans = x_mu.transpose()
-#                 temp1_valid = np.dot(sigma_inv, x_mu_trans)
-#                 temp2_valid = np.dot(x_mu, temp1_valid)
-#                 valid_design_matrix[i][j] = np.exp(((-0.5)*temp2_valid))
-#
-#     predicted_output_validation = np.dot(weights, valid_design_matrix.transpose())
-#     count = 0
-#     for i in range(len(predicted_output_validation)):
-#         if np.rint(predicted_output_validation[i]) != int(validationLabels[i]):
-#             count +=1
-#
-#     print ("Error: ", float(count)/len(predicted_output_validation))
-#     sq_error_sum_validation = np.sum(np.square(validationLabels - predicted_output_validation))
-#
-#     # print sq_error_sum
-#     validation_error = np.sqrt(float(sq_error_sum_validation)/len(validationSets))
-#     return validation_error
 
 

@@ -5,25 +5,25 @@ import numpy as np
 #
 #
 # #
-# # def closedForm_weightTraining(train_data, trainingLabels,lamda, num_basis):
+# # def cF_weightAdjustment(train_data, trainingLabels,lamda, numOfBasisFunction):
 # #     variance = train_data.var(axis=0)
 # #     sigma = variance * np.identity(len(train_data[0]))
 # #     sigma = sigma + lamda * np.identity(len(train_data[0]))
 # #     sigma_inv = np.linalg.inv(sigma)
 # #
-# #     # rand_indices = np.random.randint(0, len(train_data), size=(1,num_basis))
+# #     # rand_indices = np.random.randint(0, len(train_data), size=(1,numOfBasisFunction))
 # #
 # #     # rand_centers = []
-# #     rand_centers = k_means_clusters(train_data, trainingLabels, num_basis)
+# #     rand_centers = k_means_clusters(train_data, trainingLabels, numOfBasisFunction)
 # #     # for i in range(len(rand_indices[0])):
 # #     #     index = rand_indices[0][i]
 # #     #     rand_centers.append(train_data[index])
 # #
 # #     rand_centers = np.array(rand_centers)
-# #     design_matrix=np.zeros((len(train_data),num_basis));
+# #     design_matrix=np.zeros((len(train_data),numOfBasisFunction));
 # #
 # #     for i in range(len(train_data)):
-# #         for j in range(num_basis):
+# #         for j in range(numOfBasisFunction):
 # #             if j==0:
 # #                 design_matrix[i][j] = 1;
 # #             else:
@@ -34,7 +34,7 @@ import numpy as np
 # #                 design_matrix[i][j] = np.exp(((-0.5)*temp2))
 # #
 # #     design_matrix_trans = design_matrix.transpose()
-# #     regularisation_mat = lamda * np.identity(num_basis)
+# #     regularisation_mat = lamda * np.identity(numOfBasisFunction)
 # #     pinv_temp = np.dot(design_matrix_trans, design_matrix) + regularisation_mat
 # #     pinv = np.linalg.inv(pinv_temp)
 # #     out_temp = np.dot(design_matrix_trans, trainingLabels)
@@ -52,14 +52,14 @@ import numpy as np
 #     feature_mat, output_labels = read_data_file(in_filename, out_filename)
 #     trainingSets, trainingLabels, validationSets, validationLabels, testSets, testLabels = partition(feature_mat, output_labels, 0.8, 0.1)
 #     print trainingSets.shape, validationSets.shape, testSets.shape
-#     for num_basis in range(2, 11):
-#         print "Num Basis Functions: ", num_basis
-#         design_matrix, rbf_centers, sigma_inv, weights, rmse_train = closedForm_weightTraining(trainingSets, trainingLabels, 0.3, num_basis)
-#         rmse_validation = closed_form_solution_validation_phase(validationSets, validationLabels, weights, sigma_inv, rbf_centers, num_basis)
+#     for numOfBasisFunction in range(2, 11):
+#         print "Num Basis Functions: ", numOfBasisFunction
+#         design_matrix, rbf_centers, sigma_inv, weights, rmse_train = cF_weightAdjustment(trainingSets, trainingLabels, 0.3, numOfBasisFunction)
+#         rmse_validation = closed_form_solution_validation_phase(validationSets, validationLabels, weights, sigma_inv, rbf_centers, numOfBasisFunction)
 #         # print "Weights: ", weights
 #         print "RMSE Train: ", rmse_train
 #         print "RMSE Validation: ", rmse_validation
-#         print closed_form_solution_validation_phase(testSets, testLabels, weights, sigma_inv, rbf_centers, num_basis)
+#         print closed_form_solution_validation_phase(testSets, testLabels, weights, sigma_inv, rbf_centers, numOfBasisFunction)
 
 #
 # main()

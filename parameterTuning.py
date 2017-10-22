@@ -12,38 +12,38 @@ def Tuning1(lamda_values,
 
     for lamda in lamda_values:
         print ("lamda = ", lamda)
-        # error_matrix_letor['closed_form']['train'][lamda] = []
-        error_matrix_letor['closed_form']['validation'][lamda] = []
-        for num_basis in range(1, 30,3):
+        # error_matrix_letor['cf']['train'][lamda] = []
+        error_matrix_letor['cf']['validation'][lamda] = []
+        for numOfBasisFunction in range(1, 30,3):
             design_matrix_train_letor, \
             sigma_inv_letor,\
-            rbf_centers_letor = priorDM(training_data_letor,
+            clusters = priorDM(training_data_letor,
                                                                 training_labels_letor,
                                                                 lamda,
-                                                                num_basis)
+                                                                numOfBasisFunction)
 
             weights_letor, \
-            rmse_train_letor = closedForm_weightTraining(design_matrix_train_letor,
+            rmse_train_letor = cF_weightAdjustment(design_matrix_train_letor,
                                                                    sigma_inv_letor,
                                                                    training_labels_letor,
                                                                    lamda,
-                                                                   num_basis)
+                                                                   numOfBasisFunction)
 
 
             design_matrix_validation_letor = resultingDM(valid_data_letor,
                                                                        sigma_inv_letor,
-                                                                       rbf_centers_letor,
-                                                                       num_basis)
+                                                                       clusters,
+                                                                       numOfBasisFunction)
 
             rmse_validation_letor = calculate_error(design_matrix_validation_letor,
                                                     weights_letor,
                                                     valid_labels_letor)
 
-            # error_matrix_letor['closed_form']['train'][lamda].append(rmse_train_letor)
+            # error_matrix_letor['cf']['train'][lamda].append(rmse_train_letor)
 
-            error_matrix_letor['closed_form']['validation'][lamda].append(rmse_validation_letor)
+            error_matrix_letor['cf']['validation'][lamda].append(rmse_validation_letor)
 
-            print (num_basis, rmse_validation_letor)
+            print (numOfBasisFunction, rmse_validation_letor)
     return error_matrix_letor
 
 
@@ -61,12 +61,17 @@ def Tuning2(lamda_values, error_matrix_letor,
         print ("lamda = ", lamda)
         error_matrix_letor['gradientDescent']['train'][lamda] = []
         error_matrix_letor['gradientDescent']['validation'][lamda] = []
-        for num_basis in range(1, 31):
-            design_matrix_train_letor, sigma_inv_letor, rbf_centers_letor = priorDM(training_data_letor, training_labels_letor, lamda, num_basis)
+        for numOfBasisFunction in range(1, 31):
+            design_matrix_train_letor, \
+            sigma_inv_letor, \
+            clusters = priorDM(training_data_letor, training_labels_letor, lamda, numOfBasisFunction)
 
-            weights_letor, rmse_train_letor, learning_rate_changes, RMSE_records = SGD_sol(design_matrix_train_letor, training_labels_letor, lamda, num_basis)
+            weights_letor, rmse_train_letor, learning_rate_changes, RMSE_records = SGD_sol(design_matrix_train_letor, training_labels_letor, lamda, numOfBasisFunction)
 
-            design_matrix_validation_letor = resultingDM(valid_data_letor, sigma_inv_letor, rbf_centers_letor, num_basis)
+            design_matrix_validation_letor = resultingDM(valid_data_letor,
+                                                         sigma_inv_letor,
+                                                         clusters,
+                                                         numOfBasisFunction)
 
             rmse_validation_letor = calculate_error(design_matrix_validation_letor, weights_letor, valid_labels_letor)
 
@@ -74,7 +79,9 @@ def Tuning2(lamda_values, error_matrix_letor,
 
             error_matrix_letor['gradientDescent']['validation'][lamda].append(rmse_validation_letor)
 
-            print (num_basis, rmse_train_letor, rmse_validation_letor)
+            print (numOfBasisFunction,
+                   rmse_train_letor,
+                   rmse_validation_letor)
     return error_matrix_letor
 
 
@@ -89,9 +96,9 @@ def Tuning3(lamda_values,
             test_labels_syn):
     for lamda in lamda_values:
         print ("lamda = ", lamda)
-        error_matrix_syn['closed_form']['train'][lamda] = []
-        error_matrix_syn['closed_form']['validation'][lamda] = []
-        for num_basis in range(1, 11):
+        error_matrix_syn['cf']['train'][lamda] = []
+        error_matrix_syn['cf']['validation'][lamda] = []
+        for numOfBasisFunction in range(1, 11):
 
 
             design_matrix_train_syn,\
@@ -99,28 +106,28 @@ def Tuning3(lamda_values,
             rbf_centers_syn = priorDM(training_data_syn,
                                       training_labels_syn,
                                       lamda,
-                                      num_basis)
+                                      numOfBasisFunction)
 
             weights_syn,\
-            rmse_train_syn = closedForm_weightTraining(design_matrix_train_syn,
+            rmse_train_syn = cF_weightAdjustment(design_matrix_train_syn,
                                                                  sigma_inv_syn,
                                                                  training_labels_syn,
                                                                  lamda,
-                                                                 num_basis)
+                                                                 numOfBasisFunction)
 
             design_matrix_validation_syn = resultingDM(valid_data_syn,
                                                        sigma_inv_syn,
                                                        rbf_centers_syn,
-                                                        num_basis)
+                                                        numOfBasisFunction)
 
 
             rmse_validation_syn = calculate_error(design_matrix_validation_syn,
                                                   weights_syn,
                                                   valid_labels_syn)
 
-            error_matrix_syn['closed_form']['train'][lamda].append(rmse_train_syn)
-            error_matrix_syn['closed_form']['validation'][lamda].append(rmse_validation_syn)
-            print (num_basis, rmse_train_syn,rmse_validation_syn)
+            error_matrix_syn['cf']['train'][lamda].append(rmse_train_syn)
+            error_matrix_syn['cf']['validation'][lamda].append(rmse_validation_syn)
+            print (numOfBasisFunction, rmse_train_syn,rmse_validation_syn)
     return error_matrix_syn
 
 
@@ -137,22 +144,22 @@ def Tuning4(lamda_values,error_matrix_syn,training_data_syn,
         print ("lamda = ", lamda)
         error_matrix_syn['gradientDescent']['train'][lamda] = []
         error_matrix_syn['gradientDescent']['validation'][lamda] = []
-        for num_basis in range(1, 11):
+        for numOfBasisFunction in range(1, 11):
             DM_Training_Task4, \
             InverseSig_Task4, \
             rbf_centers_syn_GradientDescent = priorDM(training_data_syn,
                                                       training_labels_syn,
                                                       lamda,
-                                                      num_basis)
+                                                      numOfBasisFunction)
 
             weights_syn_GradientDescent,\
             rmse_train_syn_GradientDescent, \
             learning_rate_changes_syn, RMSE_records = SGD_sol(DM_Training_Task4,
                                                                                        training_labels_syn,
                                                                                        lamda,
-                                                                                       num_basis)
+                                                                                       numOfBasisFunction)
 
-            design_matrix_validation_syn_GradientDescent = resultingDM(valid_data_syn, InverseSig_Task4, rbf_centers_syn_GradientDescent, num_basis)
+            design_matrix_validation_syn_GradientDescent = resultingDM(valid_data_syn, InverseSig_Task4, rbf_centers_syn_GradientDescent, numOfBasisFunction)
 
             rmse_validation_syn_GradientDescent = calculate_error(design_matrix_validation_syn_GradientDescent, weights_syn_GradientDescent, valid_labels_syn)
 
@@ -160,7 +167,7 @@ def Tuning4(lamda_values,error_matrix_syn,training_data_syn,
 
             error_matrix_syn['gradientDescent']['validation'][lamda].append(rmse_validation_syn_GradientDescent)
 
-            print (num_basis, rmse_train_syn_GradientDescent, rmse_validation_syn_GradientDescent)
+            print (numOfBasisFunction, rmse_train_syn_GradientDescent, rmse_validation_syn_GradientDescent)
     return error_matrix_syn
 
 
@@ -184,12 +191,12 @@ def performanceTuning1(lamda_values,
 
     ''' The plots can be generated using the error matrix obtained from training.These plots help us choose the optimum hyperparameters M and lamda'''
 
-    for lamda in sorted(error_matrix_letor['closed_form']['train']):
+    for lamda in sorted(error_matrix_letor['cf']['train']):
         print("Plot for RMSE Validation across different number of Gaussian Basis Functions, for lamda = ",
               lamda)
 
-        plot_data(error_matrix_letor['closed_form']['validation'][lamda],
-                  error_matrix_letor['closed_form']['train'][lamda],
+        plot_data(error_matrix_letor['cf']['validation'][lamda],
+                  error_matrix_letor['cf']['train'][lamda],
                   lamda,
                   'RMSE Validation',
                   'RMSE Training',
@@ -246,11 +253,10 @@ def performanceTuning3(lamda_values,
                                test_data_syn,
                                test_labels_syn)
 
-    ''' The plots can be generated using the error matrix obtained from training. These plots help us choose the optimum hyperparameters M and lamda'''
 
-    for lamda in sorted(error_matrix_syn['closed_form']['train']):
+    for lamda in sorted(error_matrix_syn['cf']['train']):
         print("Plot for RMSE Validation across different number of Gaussian Basis Functions, for lamda = ", lamda)
-        plot_data(error_matrix_syn['closed_form']['validation'][lamda], error_matrix_syn['closed_form']['train'][lamda],
+        plot_data(error_matrix_syn['cf']['validation'][lamda], error_matrix_syn['cf']['train'][lamda],
                   lamda, 'RMSE Validation', 'RMSE Training', [1, 9, 0.6, 0.8])
 
 
