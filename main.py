@@ -1,7 +1,7 @@
 
 from parameterTuning import *
-
-
+import matplotlib.pyplot as plt
+from scipy.interpolate import spline
 
 
 
@@ -19,7 +19,7 @@ def performanceCF_LETR(lamda_values,
 
 
     lamda = 0.01
-    numOfBasisFunction = 30
+    numOfBasisFunction = 41
 
     design_matrix_train_cf, sigmaInv_closedForm, rbf_centers_cf = priorDM(training_data_letor,
                                                                           training_labels_letor,
@@ -170,7 +170,7 @@ def performanceCF_Syn(lamda_values,
     
     ''' After choosing the best hyperparameters, we fix their values and compute the model performance on test set'''
     lamda = 0.1
-    numOfBasisFunction = 8
+    numOfBasisFunction = 9
     design_matrix_train_syn_closed, sigma_inv_syn_closed, rbf_centers_syn_closed = priorDM(training_data_syn,
                                                                                                                    training_labels_syn,
                                                                                                                    lamda,
@@ -299,8 +299,8 @@ def performanceGD_syn(lamda_values,
 def main():
     train_percent = 0.8
     validation_percent = 0.1
-    lamda_values = [0.001, 0.01, 0.1, 1]
-    # lamda_values = [0.001, 0.01]
+    lamda_values = [0.001, 0.01, 0.1]
+    # lamda_values = [0.01]
 
 
 
@@ -321,7 +321,7 @@ def main():
 
 
     if(True):
-        if(True):
+        if(False):
             print("Tuning Task 1\n")
             performanceTuning1(lamda_values,
                                 error_matrix_letor,
@@ -334,7 +334,7 @@ def main():
 
 
 
-        if(False):
+        if(True):
             print("Tuning Task 2\n")
             performanceTuning2(lamda_values,
                            error_matrix_letor,
@@ -344,6 +344,24 @@ def main():
                            valid_labels_letor,
                            test_data_letor,
                            test_labels_letor)
+            a = np.linspace(1, 46, 46)
+            xnew = np.linspace(a.min(), a.max(), 46)  # 300 represents number of points to make between T.min and T.max
+
+            b = error_matrix_letor['cf']['validation'][0.001]
+            c = error_matrix_letor['cf']['validation'][0.01]
+            d = error_matrix_letor['cf']['validation'][0.1]
+            # e = error_matrix_letor['cf']['validation'][1]
+
+            pb1 = spline(a, b, xnew)
+            pb2 = spline(a, c, xnew)
+            pb3 = spline(a, d, xnew)
+            # pb4 = spline(a, e, xnew)
+
+            plt.plot(xnew, pb1, '-r', label='1')
+            plt.plot(xnew, pb2, '-g', label='2')
+            plt.plot(xnew, pb3, '-b', label='3')
+            # plt.plot(xnew, pb4, '-c', label='4')
+            plt.show()
 
 
 
@@ -359,7 +377,7 @@ def main():
                                         test_data_letor,
                                         test_labels_letor)
 
-        if (False):
+        if (True):
             print("performance on Task 2\n")
             performanceGD_LETR(lamda_values,
                     error_matrix_letor,
@@ -368,6 +386,8 @@ def main():
                     valid_data_letor,
                     valid_labels_letor,
                     test_data_letor, test_labels_letor)
+
+
 
 
     in_filename_syn = 'data\input.csv'
@@ -393,8 +413,8 @@ def main():
     error_matrix_syn = {'cf':{'train':{}, 'validation':{}}, 'gradientDescent': {'train':{}, 'validation':{}}}
 
 
-    if(False):
-        if(True):
+    if(True):
+        if(False):
             '''Tuning Task 3'''
             performanceTuning3(lamda_values,
                            error_matrix_syn,
@@ -405,7 +425,30 @@ def main():
                            test_data_syn,
                            test_labels_syn)
 
-        if(True):
+            a = np.linspace(1, 10, 10)
+            xnew = np.linspace(a.min(), a.max(), 10)  # 300 represents number of points to make between T.min and T.max
+
+
+            b = error_matrix_syn['cf']['validation'][0.001]
+            c = error_matrix_syn['cf']['validation'][0.01]
+            d = error_matrix_syn['cf']['validation'][0.1]
+            e = error_matrix_syn['cf']['validation'][1]
+
+            pb1 = spline(a, b, xnew)
+            pb2 = spline(a, c,xnew)
+            pb3 = spline(a, d, xnew)
+            pb4 = spline(a, e, xnew)
+
+            plt.plot(xnew, pb1, '-r', label='1')
+            plt.plot(xnew, pb2, '-g', label='2')
+            plt.plot(xnew, pb3, '-b', label='3')
+            plt.plot(xnew, pb4, '-c', label='4')
+            plt.show()
+
+
+
+
+        if(False):
             '''Tuning Task 4'''
             print("GradientDescent on Syn")
             performanceTuning4(lamda_values,
@@ -416,9 +459,27 @@ def main():
                                valid_labels_syn,
                                test_data_syn,
                                test_labels_syn)
+            a = np.linspace(1, 10, 10)
+            xnew = np.linspace(a.min(), a.max(), 10)  # 300 represents number of points to make between T.min and T.max
+
+            b = error_matrix_syn['gradientDescent']['validation'][0.001]
+            c = error_matrix_syn['gradientDescent']['validation'][0.01]
+            d = error_matrix_syn['gradientDescent']['validation'][0.1]
+            e = error_matrix_syn['gradientDescent']['validation'][1]
+
+            pb1 = spline(a, b, xnew)
+            pb2 = spline(a, c, xnew)
+            pb3 = spline(a, d, xnew)
+            pb4 = spline(a, e, xnew)
+
+            plt.plot(xnew, pb1, '-r', label='1')
+            plt.plot(xnew, pb2, '-g', label='2')
+            plt.plot(xnew, pb3, '-b', label='3')
+            plt.plot(xnew, pb4, '-c', label='4')
+            plt.show()
 
 
-        if(True):
+        if(False):
             print("Result on Task 3")
             performanceCF_Syn(lamda_values,
                               error_matrix_syn,
@@ -428,7 +489,7 @@ def main():
                               valid_labels_syn,
                               test_data_syn,test_labels_syn)
 
-        if(True):
+        if(False):
             print("Result onTask 4")
             performanceGD_syn(lamda_values,
                                      error_matrix_syn,
