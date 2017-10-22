@@ -299,8 +299,8 @@ def performanceGD_syn(lamda_values,
 def main():
     train_percent = 0.8
     validation_percent = 0.1
-    lamda_values = [0.001, 0.01, 0.1]
-    # lamda_values = [0.01]
+    # lamda_values = [0.001, 0.01, 0.1]
+    lamda_values = [0.01]
 
 
 
@@ -347,19 +347,19 @@ def main():
             a = np.linspace(1, 46, 46)
             xnew = np.linspace(a.min(), a.max(), 46)  # 300 represents number of points to make between T.min and T.max
 
-            b = error_matrix_letor['cf']['validation'][0.001]
+            # b = error_matrix_letor['cf']['validation'][0.001]
             c = error_matrix_letor['cf']['validation'][0.01]
-            d = error_matrix_letor['cf']['validation'][0.1]
+            # d = error_matrix_letor['cf']['validation'][0.1]
             # e = error_matrix_letor['cf']['validation'][1]
 
-            pb1 = spline(a, b, xnew)
+            # pb1 = spline(a, b, xnew)
             pb2 = spline(a, c, xnew)
-            pb3 = spline(a, d, xnew)
+            # pb3 = spline(a, d, xnew)
             # pb4 = spline(a, e, xnew)
 
-            plt.plot(xnew, pb1, '-r', label='1')
+            # plt.plot(xnew, pb1, '-r', label='1')
             plt.plot(xnew, pb2, '-g', label='2')
-            plt.plot(xnew, pb3, '-b', label='3')
+            # plt.plot(xnew, pb3, '-b', label='3')
             # plt.plot(xnew, pb4, '-c', label='4')
             plt.show()
 
