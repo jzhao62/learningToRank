@@ -2,7 +2,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.cluster import KMeans
 
-
+'''
+Read in Files 
+'''
 def readFile(in_filename, out_filename):
     input_matrix = []
     output = []
@@ -25,7 +27,9 @@ def readFile(in_filename, out_filename):
     input_matrix = np.array(input_matrix)
     return input_matrix, output
 
-
+'''
+Calculate RMSE errors
+'''
 def calculate_error(input_matrix,
                     weights,
                     output):
@@ -35,25 +39,19 @@ def calculate_error(input_matrix,
     rmse = np.sqrt(float(squared_error_sum)/len(output))
     return rmse
 
+
+'''
+Random Shuffle data set at the starting of each epoch
+'''
 def shuffle(input_matrix, output):
-    complete_train_data = np.insert(input_matrix, 0, output, axis=1)
-    np.random.shuffle(complete_train_data)
-    trainingLabels = complete_train_data[:,0]
-    input_matrix = np.delete(complete_train_data,0,axis=1)
+    trainingData = np.insert(input_matrix, 0, output, axis=1)
+    np.random.shuffle(trainingData)
+    trainingLabels = trainingData[:,0]
+    input_matrix = np.delete(trainingData,0,axis=1)
     return input_matrix, trainingLabels
 
-def plot_data(y_values1, y_values2, lamda, label1, label2, axis_dim):
-    plt.plot(y_values1, 'ro',label=label1)
-    plt.plot(y_values2, 'b-', label = label2)
-    plt.axis(axis_dim)
-    plt.ylabel('RMSE')
-    plt.xlabel('Model Complexity')
-    plt.title('Lambda = ' + str(lamda))
-    l = plt.legend()
-    plt.show()
 
-
-
+''' Partition matrix into 8 : 1 : 1'''
 def partition(input_matrix,
               output,
               train_percent,
@@ -83,10 +81,12 @@ def partition(input_matrix,
 
     return np.array(trainingSets), np.array(trainingLabels), np.array(validationSets), np.array(validationLabels), np.array(testSets), np.array(testLabels)
 
+
+
+''' Generate K clusters with given numOf BasisFunction'''
 def generateKclusters(train_data,
                      trainingLabels,
                      numOfBasisFunction):
-
     kmeans = KMeans(n_clusters=numOfBasisFunction, random_state=0).fit(train_data)
     cluster_centers = kmeans.cluster_centers_
     return cluster_centers
@@ -132,8 +132,6 @@ def priorDM(train_data,
 the resulting inverse sigma, and random centers are used to create DM for validation and test sets
 
 '''
-
-
 def resultingDM(data,
                 sigma_inv,
                 rand_centers,
@@ -155,7 +153,7 @@ def resultingDM(data,
 
 
 '''
- w∗ = inv((λI + transpose(Φ) * Φ))* transpose(Φ)*y , nothing too complex
+ w∗ = inv((λI + transpose(Φ) * Φ))* transpose(Φ)*y at closedForm solution, nothing too complex
 '''
 
 def cF_weightAdjustment(Φ, sigma_inv,

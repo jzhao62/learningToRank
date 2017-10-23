@@ -1,4 +1,10 @@
 
+'''
+
+This is a gradientDescend class with associated function call. 2 methods are implemented,
+SGD, and SGD with momentum optimization.
+
+'''
 import numpy as np
 from Solutions import *
 
@@ -60,22 +66,22 @@ def SGD_sol(DM_Training,
                 priorError = train_ERMS
             epochs += 1
 
-
-
-    plt.semilogx(RMSE_records, 'b-', label='Train Error(SGD)')
-    plt.axis([0, 10000, 0.2, 2.0])
-    plt.ylabel('RMSE')
-    plt.xlabel('Steps')
-    plt.title('Training Error vs GD steps(SGD)')
-    plt.grid()
-    plt.show()
-
-    plt.plot(ηList , 'c-', label='η')
-    plt.axis([0, 50, 0, 1])
-    plt.ylabel('Learning Rate')
-    plt.xlabel('Steps')
-    plt.title('Learning Rate vs steps')
-    plt.show()
+    #
+    #
+    # plt.semilogx(RMSE_records, 'b-', label='Train Error(SGD)')
+    # plt.axis([0, 10000, 0.2, 2.0])
+    # plt.ylabel('RMSE')
+    # plt.xlabel('Steps')
+    # plt.title('Training Error vs GD steps(SGD)')
+    # plt.grid()
+    # plt.show()
+    #
+    # plt.plot(ηList , 'c-', label='η')
+    # plt.axis([0, 50, 0, 1])
+    # plt.ylabel('Learning Rate')
+    # plt.xlabel('Steps')
+    # plt.title('Learning Rate vs steps')
+    # plt.show()
     return currWeights, train_ERMS, ηList , RMSE_records
 
 
@@ -146,22 +152,22 @@ def SGD_sol_momentum(DM_Training,
             performanceBenchMark = abs(priorError - trainingErros)/priorError
             priorError = trainingErros
         epochs +=1
-
-    plt.semilogx(RMSE_records, 'b-', label='Train Error')
-    plt.xlim([0,10000])
-    plt.autoscale(enable=True, axis='y')
-    plt.ylabel('RMSE')
-    plt.xlabel('Steps')
-    plt.title('Training Error vs GD steps(SGD_momentum)')
-    plt.grid()
-    plt.show()
-
-    plt.plot(ηList, 'c-', label='Learning Rate')
-    plt.axis([0, 100, 0, 1])
-    plt.ylabel('Learning Rate')
-    plt.xlabel('Steps')
-    plt.title('Learning Rate vs steps')
-    plt.show()
+    #
+    # plt.semilogx(RMSE_records, 'b-', label='Train Error')
+    # plt.xlim([0,10000])
+    # plt.autoscale(enable=True, axis='y')
+    # plt.ylabel('RMSE')
+    # plt.xlabel('Steps')
+    # plt.title('Training Error vs GD steps(SGD_momentum)')
+    # plt.grid()
+    # plt.show()
+    #
+    # plt.plot(ηList, 'c-', label='Learning Rate')
+    # plt.axis([0, 100, 0, 1])
+    # plt.ylabel('Learning Rate')
+    # plt.xlabel('Steps')
+    # plt.title('Learning Rate vs steps')
+    # plt.show()
 
 
 
