@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="5e4ed871-1611-4b2f-98c4-cc05d3a02a51" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gradientDescent.py" afterPath="$PROJECT_DIR$/gradientDescent.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.py" afterPath="$PROJECT_DIR$/main.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -40,14 +40,13 @@
       <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="394">
-              <caret line="129" column="3" lean-forward="true" selection-start-line="129" selection-start-column="3" selection-end-line="129" selection-end-column="3" />
+            <state relative-caret-position="664">
+              <caret line="308" column="73" lean-forward="true" selection-start-line="308" selection-start-column="73" selection-end-line="308" selection-end-column="73" />
               <folding>
                 <element signature="e#1#30#0" expanded="true" />
                 <element signature="e#574#2573#0" expanded="false" />
                 <element signature="e#5528#7944#0" expanded="false" />
-                <element signature="e#12899#17392#0" expanded="false" />
-                <element signature="e#18979#19505#0" expanded="false" />
+                <element signature="e#20151#20677#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -584,7 +583,14 @@
       <option name="project" value="LOCAL" />
       <updated>1508816336477</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Added early stop in GD.">
+      <created>1508816422125</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1508816422125</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -713,7 +719,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/main.py</url>
-          <line>397</line>
+          <line>426</line>
           <option name="timeStamp" value="49" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -745,8 +751,7 @@
             <element signature="e#1#30#0" expanded="true" />
             <element signature="e#574#2573#0" expanded="false" />
             <element signature="e#5528#7944#0" expanded="false" />
-            <element signature="e#12899#17392#0" expanded="false" />
-            <element signature="e#18979#19505#0" expanded="false" />
+            <element signature="e#20151#20677#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -770,8 +775,7 @@
             <element signature="e#1#30#0" expanded="true" />
             <element signature="e#574#2573#0" expanded="false" />
             <element signature="e#5528#7944#0" expanded="false" />
-            <element signature="e#12899#17392#0" expanded="false" />
-            <element signature="e#18979#19505#0" expanded="false" />
+            <element signature="e#20151#20677#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -795,8 +799,7 @@
             <element signature="e#1#30#0" expanded="true" />
             <element signature="e#574#2573#0" expanded="false" />
             <element signature="e#5528#7944#0" expanded="false" />
-            <element signature="e#12899#17392#0" expanded="false" />
-            <element signature="e#18979#19505#0" expanded="false" />
+            <element signature="e#20151#20677#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -821,8 +824,7 @@
             <element signature="e#1#30#0" expanded="true" />
             <element signature="e#574#2573#0" expanded="false" />
             <element signature="e#5528#7944#0" expanded="false" />
-            <element signature="e#12899#17392#0" expanded="false" />
-            <element signature="e#18979#19505#0" expanded="false" />
+            <element signature="e#20151#20677#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -845,8 +847,7 @@
             <element signature="e#1#30#0" expanded="true" />
             <element signature="e#574#2573#0" expanded="false" />
             <element signature="e#5528#7944#0" expanded="false" />
-            <element signature="e#12899#17392#0" expanded="false" />
-            <element signature="e#18979#19505#0" expanded="false" />
+            <element signature="e#20151#20677#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1041,14 +1042,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="394">
-          <caret line="129" column="3" lean-forward="true" selection-start-line="129" selection-start-column="3" selection-end-line="129" selection-end-column="3" />
+        <state relative-caret-position="664">
+          <caret line="308" column="73" lean-forward="true" selection-start-line="308" selection-start-column="73" selection-end-line="308" selection-end-column="73" />
           <folding>
             <element signature="e#1#30#0" expanded="true" />
             <element signature="e#574#2573#0" expanded="false" />
             <element signature="e#5528#7944#0" expanded="false" />
-            <element signature="e#12899#17392#0" expanded="false" />
-            <element signature="e#18979#19505#0" expanded="false" />
+            <element signature="e#20151#20677#0" expanded="false" />
           </folding>
         </state>
       </provider>

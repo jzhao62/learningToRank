@@ -295,6 +295,7 @@ def generateResult():
 
 
 # if you want to Tune, the best parameter, set the bool false to true;
+
     if(StartTuning):
         if(False):
             print("Tuning Task 1\n")
@@ -304,6 +305,29 @@ def generateResult():
                                 trainingLabel_t1_t2,
                                 validationData_t1_t2,
                                 validationLabel_t1_t2)
+            a = np.linspace(1, 46, 46)
+            xnew = np.linspace(a.min(), a.max(), 46)  # 300 represents number of points to make between T.min and T.max
+
+            b = errorMat_T1_T2['cf']['validation'][0.001]
+            c = errorMat_T1_T2['cf']['validation'][0.01]
+            d = errorMat_T1_T2['cf']['validation'][0.1]
+            e = errorMat_T1_T2['cf']['validation'][1]
+
+            plt.autoscale(enable=True, axis='y')
+            plt.ylabel('RMSE')
+            plt.xlabel('Number of Basis Function')
+            plt.title('RMSE vs Number of Basis at different learning rate for Task 1')
+
+            pb1 = spline(a, b, xnew)
+            pb2 = spline(a, c, xnew)
+            pb3 = spline(a, d, xnew)
+            pb4 = spline(a, e, xnew)
+
+            plt.plot(xnew, pb1, '-r', label='1')
+            plt.plot(xnew, pb2, '-g', label='2')
+            plt.plot(xnew, pb3, '-b', label='3')
+            plt.plot(xnew, pb4, '-c', label='4')
+            plt.show()
         if(False):
             print("Tuning Task 2\n")
             performanceTuning2(lamda_values,
@@ -315,20 +339,25 @@ def generateResult():
             a = np.linspace(1, 46, 46)
             xnew = np.linspace(a.min(), a.max(), 46)  # 300 represents number of points to make between T.min and T.max
 
-            # b = errorMat_T1_T2['cf']['validation'][0.001]
-            c = errorMat_T1_T2['cf']['validation'][0.01]
-            # d = errorMat_T1_T2['cf']['validation'][0.1]
-            # e = errorMat_T1_T2['cf']['validation'][1]
+            b = errorMat_T1_T2['gradientDescent']['validation'][0.001]
+            c = errorMat_T1_T2['gradientDescent']['validation'][0.01]
+            d = errorMat_T1_T2['gradientDescent']['validation'][0.1]
+            e = errorMat_T1_T2['gradientDescent']['validation'][1]
 
-            # pb1 = spline(a, b, xnew)
+            plt.autoscale(enable=True, axis='y')
+            plt.ylabel('RMSE')
+            plt.xlabel('Number of Basis Function')
+            plt.title('RMSE vs Number of Basis at different learning rate for Task 2')
+
+            pb1 = spline(a, b, xnew)
             pb2 = spline(a, c, xnew)
-            # pb3 = spline(a, d, xnew)
-            # pb4 = spline(a, e, xnew)
+            pb3 = spline(a, d, xnew)
+            pb4 = spline(a, e, xnew)
 
-            # plt.plot(xnew, pb1, '-r', label='1')
+            plt.plot(xnew, pb1, '-r', label='1')
             plt.plot(xnew, pb2, '-g', label='2')
-            # plt.plot(xnew, pb3, '-b', label='3')
-            # plt.plot(xnew, pb4, '-c', label='4')
+            plt.plot(xnew, pb3, '-b', label='3')
+            plt.plot(xnew, pb4, '-c', label='4')
             plt.show()
         if (False):
             '''Tuning Task 3'''
@@ -370,28 +399,28 @@ def generateResult():
                                trainingLabel_Sync,
                                valid_data_syn,
                                valid_labels_syn)
-            # a = np.linspace(1, 10, 10)
-            # xnew = np.linspace(a.min(), a.max(), 10)  # 300 represents number of points to make between T.min and T.max
-            #
-            # b = errorMat_T3_T4['gradientDescent']['validation'][0.001]
-            # c = errorMat_T3_T4['gradientDescent']['validation'][0.01]
-            # d = errorMat_T3_T4['gradientDescent']['validation'][0.1]
-            # e = errorMat_T3_T4['gradientDescent']['validation'][1]
-            # plt.autoscale(enable=True, axis='y')
-            # plt.ylabel('RMSE')
-            # plt.xlabel('Number of Basis Function')
-            # plt.title('RMSE vs Number of Basis at different learning rate for Task 4')
-            # pb1 = spline(a, b, xnew)
-            # pb2 = spline(a, c, xnew)
-            # pb3 = spline(a, d, xnew)
-            # pb4 = spline(a, e, xnew)
-            # plt.plot(xnew,pb1, label = 'rate = 0.001')
-            # plt.plot(xnew,pb2, label = 'rate = 0.01')
-            # plt.plot(xnew, pb3, label='rate = 0.1')
-            # plt.plot(xnew, pb4, label='rate = 1')
-            # plt.legend()
-            # plt.grid()
-            # plt.show()
+            a = np.linspace(1, 10, 10)
+            xnew = np.linspace(a.min(), a.max(), 10)  # 300 represents number of points to make between T.min and T.max
+
+            b = errorMat_T3_T4['gradientDescent']['validation'][0.001]
+            c = errorMat_T3_T4['gradientDescent']['validation'][0.01]
+            d = errorMat_T3_T4['gradientDescent']['validation'][0.1]
+            e = errorMat_T3_T4['gradientDescent']['validation'][1]
+            plt.autoscale(enable=True, axis='y')
+            plt.ylabel('RMSE')
+            plt.xlabel('Number of Basis Function')
+            plt.title('RMSE vs Number of Basis at different learning rate for Task 4')
+            pb1 = spline(a, b, xnew)
+            pb2 = spline(a, c, xnew)
+            pb3 = spline(a, d, xnew)
+            pb4 = spline(a, e, xnew)
+            plt.plot(xnew,pb1, label = 'rate = 0.001')
+            plt.plot(xnew,pb2, label = 'rate = 0.01')
+            plt.plot(xnew, pb3, label='rate = 0.1')
+            plt.plot(xnew, pb4, label='rate = 1')
+            plt.legend()
+            plt.grid()
+            plt.show()
 
 # if you want to See results, set the bool false to true;
 # all experiments are based on the best parameters chosen from tuning
