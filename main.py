@@ -84,18 +84,24 @@ def performanceGD_LETR(lamda,
                                           lamda,
                                           numOfBasisFunction)
 
+    DM_validation_GD = resultingDM(validationData_t1_t2,
+                                   sigma_inv_GradientDescent,
+                                   rbf_centers_GradientDescent,
+                                   numOfBasisFunction)
+
+
+
     weights_GradientDescent,\
     rmse_train_GradientDescent, \
     learning_rate_changes_GradientDescent, \
     error_iteration_letor_GradientDescent = SGD_sol_momentum(design_matrix_train_GradientDescent,
                                                     trainingLabel_t1_t2,
+                                                    DM_validation_GD,
+                                                    validationLabel_t1_t2,
                                                     lamda,numOfBasisFunction)
 
 
-    DM_validation_GD = resultingDM(validationData_t1_t2,
-                                   sigma_inv_GradientDescent,
-                                   rbf_centers_GradientDescent,
-                                   numOfBasisFunction)
+
 
 
     rmse_validation_GD = calculate_error(DM_validation_GD,
@@ -188,20 +194,26 @@ def performanceGD_syn(lamda,
     '''
     We are testing different gradient descent method here
     '''
+
+    design_matrix_validation_syn_GradientDescent = resultingDM(valid_data_syn,
+                                                               InverseSig_Task4,
+                                                               rbf_centers_syn_GradientDescent,
+                                                               numOfBasisFunction)
+
+
     weights_syn_GradientDescent, \
     rmse_train_syn_GradientDescent, \
     learning_rate_changes_syn_GradientDescent, \
     error_iteration_syn_GradientDescent = SGD_sol_momentum(DM_Training_Task4,
                                                   trainingLabel_Sync,
+                                                  design_matrix_validation_syn_GradientDescent,
+                                                   valid_labels_syn,
                                                   lamda,
                                                   numOfBasisFunction)
 
 
 
-    design_matrix_validation_syn_GradientDescent = resultingDM(valid_data_syn,
-                                                                InverseSig_Task4,
-                                                                rbf_centers_syn_GradientDescent,
-                                                                numOfBasisFunction)
+
 
     rmse_validation_syn_GradientDescent = calculate_error(design_matrix_validation_syn_GradientDescent,
                                                           weights_syn_GradientDescent,
@@ -278,7 +290,7 @@ def generateResult():
     print("Samples in Test", len(test_data_syn))
     print("----------------------------------------------------\n")
 
-    StartTuning = True;
+    StartTuning = False;
     StartTesting = True;
 
 
@@ -397,7 +409,7 @@ def generateResult():
                                validationLabel_t1_t2,
                                testData_t1_t2,
                                testLabel_t1_t2)
-        if (True):
+        if (False):
 
             print("performance of Task 2")
             print("Learning rate 0.01, # of Basis 11")
@@ -409,7 +421,7 @@ def generateResult():
                                validationData_t1_t2,
                                validationLabel_t1_t2,
                                testData_t1_t2, testLabel_t1_t2)
-        if(True):
+        if(False):
             print("Result of Task 3")
             print("Learning rate 0.1, # of Basis 9")
             performanceCF_Syn(0.1,
@@ -420,10 +432,10 @@ def generateResult():
                               valid_data_syn,
                               valid_labels_syn,
                               test_data_syn,test_labels_syn)
-        if(True):
+        if(False):
             print("Result of Task 4")
             print("Learning rate 1, # of Basis 6")
-            performanceGD_syn(1,
+            performanceGD_syn(0.02,
                               6,
                                      errorMat_T3_T4,
                                      trainingInput_Sync,
