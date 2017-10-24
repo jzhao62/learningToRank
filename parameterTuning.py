@@ -1,6 +1,6 @@
 
 from gradientDescent import *
-
+from closedForm import*
 
 # Used to define the best learning rate and the number of basis function
 # called in Task 1,

@@ -2,7 +2,7 @@
 from parameterTuning import *
 import matplotlib.pyplot as plt
 from scipy.interpolate import spline
-
+from closedForm import*
 
 
 '''
@@ -63,12 +63,6 @@ def performanceCF_LETR(lamda,
     print ("Weights Vector :\n", weightClosedForm)
     print("----------------------------------------------------\n")
 
-
-
-
-
-
-
 '''
 Task 2 LETOR and gradientDescent
 '''
@@ -125,9 +119,6 @@ def performanceGD_LETR(lamda,
     print ("RMSE on Test Set: ", rmse_test_GradientDescent)
     print ("Weights Vector for the Model:\n", weights_GradientDescent)
     print("----------------------------------------------------\n")
-
-
-
 '''
 Task 3 Synthetic data and ClosedForm
 '''
@@ -174,10 +165,6 @@ def performanceCF_Syn(lamda,
     print ("RMSE on Test Set: ", rmse_test_syn_closed)
     print ("Weights Vector(w) for the trained Model:\n", weights_syn_closed)
     print("----------------------------------------------------\n")
-
-
-
-
 '''
 Task 4 Synthetic data and GradientDescent
 '''
@@ -237,7 +224,9 @@ def performanceGD_syn(lamda,
     print ("Weights Vector for the Model:\n", weights_syn_GradientDescent)
     print("----------------------------------------------------\n")
 
-
+'''
+Run
+'''
 def generateResult():
     train_percent = 0.8
     validation_percent = 0.1
@@ -396,7 +385,8 @@ def generateResult():
 # all experiments are based on the best parameters chosen from tuning
     if(StartTesting):
         if (True):
-            print("performance of Task 1\n")
+            print("performance of Task 1")
+            print("Learning rate 0.01, # of Basis 41")
 
             performanceCF_LETR(0.01,
                                41,
@@ -409,7 +399,8 @@ def generateResult():
                                testLabel_t1_t2)
         if (True):
 
-            print("performance of Task 2\n")
+            print("performance of Task 2")
+            print("Learning rate 0.01, # of Basis 11")
             performanceGD_LETR(0.01,
                                11,
                                errorMat_T1_T2,
@@ -420,7 +411,7 @@ def generateResult():
                                testData_t1_t2, testLabel_t1_t2)
         if(True):
             print("Result of Task 3")
-
+            print("Learning rate 0.1, # of Basis 9")
             performanceCF_Syn(0.1,
                               9,
                               errorMat_T3_T4,
@@ -431,7 +422,7 @@ def generateResult():
                               test_data_syn,test_labels_syn)
         if(True):
             print("Result of Task 4")
-
+            print("Learning rate 1, # of Basis 6")
             performanceGD_syn(1,
                               6,
                                      errorMat_T3_T4,

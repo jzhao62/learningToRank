@@ -9,10 +9,11 @@ import numpy as np
 from Solutions import *
 
 
-
 '''
 
 w(τ+1) = w(τ) +  −η(τ)* ∇E
+
+Equations used for Gradient Descent
 w(τ+1) = w(τ) + η(τ) * ((yi − transpose (w(τ)) * ϕ(xi))*ϕ(xi) - λ * w(τ))
 
 '''
