@@ -12,7 +12,7 @@ def Tuning1(lamda_values,
             validationLabel_t1_t2):
 
     for lamda in lamda_values:
-        # print ("lamda = ", lamda)
+        print ("lamda = ", lamda)
         errorMat_T1_T2['cf']['train'][lamda] = []
         errorMat_T1_T2['cf']['validation'][lamda] = []
         for numOfBasisFunction in range(1, 47,1):
@@ -44,7 +44,7 @@ def Tuning1(lamda_values,
 
             errorMat_T1_T2['cf']['validation'][lamda].append(rmse_validation_letor)
 
-            # print (rmse_validation_letor)
+            print (rmse_validation_letor)
     return errorMat_T1_T2
 
 
@@ -58,6 +58,7 @@ def Tuning2(lamda_values,
             validationLabel_t1_t2):
 
     for lamda in lamda_values:
+        print("lamda = ", lamda)
         errorMat_T1_T2['gradientDescent']['train'][lamda] = []
         errorMat_T1_T2['gradientDescent']['validation'][lamda] = []
         for numOfBasisFunction in range(1, 47):
@@ -89,9 +90,7 @@ def Tuning2(lamda_values,
 
             errorMat_T1_T2['gradientDescent']['validation'][lamda].append(rmse_validation_t2)
 
-            # print (numOfBasisFunction,
-            #        rmse_train_t2,
-            #        rmse_validation_t2)
+            print (rmse_validation_t2)
     return errorMat_T1_T2
 
 
