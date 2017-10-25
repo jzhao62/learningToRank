@@ -65,18 +65,21 @@ def Tuning2(lamda_values,
             sigma_inv, \
             clusters = priorDM(trainingData_t1_t2, trainingLabel_t1_t2, lamda, numOfBasisFunction)
 
+            DM_validation_t2 = resultingDM(validationData_t1_t2,
+                                           sigma_inv,
+                                           clusters,
+                                           numOfBasisFunction)
             weights_letor, \
             rmse_train_t2, \
             learning_rate_changes, \
-            RMSE_records = SGD_sol(design_matrix_train_letor,
+            RMSE_records = SGD_sol_momentum(design_matrix_train_letor,
                                    trainingLabel_t1_t2,
+                                   DM_validation_t2,
+                                   validationLabel_t1_t2,
                                    lamda,
                                    numOfBasisFunction)
 
-            DM_validation_t2 = resultingDM(validationData_t1_t2,
-                                                         sigma_inv,
-                                                         clusters,
-                                                         numOfBasisFunction)
+
 
             rmse_validation_t2 = calculate_error(DM_validation_t2,
                                                     weights_letor,
@@ -149,6 +152,7 @@ def Tuning4(lamda_values,errorMat_T3_T4,
     for lamda in lamda_values:
         errorMat_T3_T4['gradientDescent']['train'][lamda] = []
         errorMat_T3_T4['gradientDescent']['validation'][lamda] = []
+        print("______________")
         for numOfBasisFunction in range(1, 11):
             DM_Training_Task4, \
             InverseSig_Task4, \
@@ -157,14 +161,19 @@ def Tuning4(lamda_values,errorMat_T3_T4,
                                                       lamda,
                                                       numOfBasisFunction)
 
+            design_matrix_validation_syn_GradientDescent = resultingDM(valid_data_syn, InverseSig_Task4, kCenters,
+                                                                       numOfBasisFunction)
+
             weights,\
             error_training_gd, \
             learningRateHistory, RMSE_records = SGD_sol_momentum(DM_Training_Task4,
                                                               trainingLabel_Sync,
+                                                              design_matrix_validation_syn_GradientDescent,
+                                                              valid_labels_syn,
                                                               lamda,
                                                               numOfBasisFunction)
 
-            design_matrix_validation_syn_GradientDescent = resultingDM(valid_data_syn, InverseSig_Task4, kCenters, numOfBasisFunction)
+
 
             rmse_validation_syn_GradientDescent = calculate_error(design_matrix_validation_syn_GradientDescent, weights, valid_labels_syn)
 
@@ -172,7 +181,7 @@ def Tuning4(lamda_values,errorMat_T3_T4,
 
             errorMat_T3_T4['gradientDescent']['validation'][lamda].append(rmse_validation_syn_GradientDescent)
 
-            print (numOfBasisFunction, error_training_gd, rmse_validation_syn_GradientDescent)
+            print (rmse_validation_syn_GradientDescent)
     return errorMat_T3_T4
 
 

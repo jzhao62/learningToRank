@@ -119,38 +119,39 @@ def SGD_sol_momentum(DM_Training,
                                                    trainingLabels))
 
 
-            if (i % 2 == 0):
-                validationError = calculate_error(DM_validation, currWeight, validationLabels)
-                trainingError = calculate_error(DM_Training,currWeight,trainingLabels)
-                validation_records.append(calculate_error(DM_validation,currWeight,validationLabels))
-
-                # This is the early stop criteria we select, we check validation error every 2 steps
-                # it is only allowed to early stop when training/validation both become stable, that is, the next trainning error is within 100% fluctuation
-                # of the previous one. Otherwise, we do not treat it as a viable point to stop trainning.
-                # in reality, we see that some times early stop occur, sometimes it dont. early stopping could depends on learning rate.
-                # the larger, the less stable is the graph
-                # the smaller, the more likely it will converge.
-                if validationError > trainingError and i > 500:
-                    print("Early stop happens here ")
-                    print("at step :", i)
-                    print(trainingError, validationError)
-                    plt.semilogx(RMSE_records, 'b-', label='Train Error')
-                    plt.semilogx(validation_records, 'r-', label='valid Error')
-                    plt.legend();
-                    plt.xlim([0, 10000])
-                    plt.autoscale(enable=True, axis='y')
-                    plt.ylabel('RMSE')
-                    plt.xlabel('Steps')
-                    plt.title('Training/Validation Error vs GD steps(SGD_momentum)')
-                    plt.grid()
-                    plt.show()
-                    plt.plot(ηList, 'c-', label='Learning Rate')
-                    plt.axis([0, 100, 0, 1])
-                    plt.ylabel('Learning Rate')
-                    plt.xlabel('Steps')
-                    plt.title('Learning Rate vs steps')
-                    plt.show()
-                    return currWeight, trainingError, ηList, RMSE_records
+            # if (i % 10 == 0):
+            #     validationError = calculate_error(DM_validation, currWeight, validationLabels)
+            #     trainingError = calculate_error(DM_Training,currWeight,trainingLabels)
+            #     validation_records.append(calculate_error(DM_validation,currWeight,validationLabels))
+            #
+            #     # This is the early stop criteria we select, we check validation error every 2 steps
+            #     # it is only allowed to early stop when training/validation both become stable, that is, the next trainning error is within 100% fluctuation
+            #     # of the previous one. Otherwise, we do not treat it as a viable point to stop trainning.
+            #     # in reality, we see that some times early stop occur, sometimes it dont. early stopping could depends on learning rate.
+            #     # the larger, the less stable is the graph
+            #     # the smaller, the more likely it will converge.
+            #
+            #     if validationError > trainingError and i > 500:
+            #         # print("Early stop happens here ")
+            #         # print("at step :", i)
+            #         # print(trainingError, validationError)
+            #         # plt.semilogx(RMSE_records, 'b-', label='Train Error')
+            #         # plt.semilogx(validation_records, 'r-', label='valid Error')
+            #         # plt.legend();
+            #         # plt.xlim([0, 10000])
+            #         # plt.autoscale(enable=True, axis='y')
+            #         # plt.ylabel('RMSE')
+            #         # plt.xlabel('Steps')
+            #         # plt.title('Training/Validation Error vs GD steps(SGD_momentum)')
+            #         # plt.grid()
+            #         # plt.show()
+            #         # plt.plot(ηList, 'c-', label='Learning Rate')
+            #         # plt.axis([0, 100, 0, 1])
+            #         # plt.ylabel('Learning Rate')
+            #         # plt.xlabel('Steps')
+            #         # plt.title('Learning Rate vs steps')
+            #         # plt.show()
+            #         return currWeight, trainingError, ηList, RMSE_records
 
 
 
@@ -188,22 +189,22 @@ def SGD_sol_momentum(DM_Training,
             priorError = trainingErros
         epochs +=1
 
-    plt.semilogx(RMSE_records, 'b-', label='Train Error')
-    plt.semilogx(validation_records, 'r-', label='valid Error')
-    plt.legend();
-    plt.xlim([0,10000])
-    plt.autoscale(enable=True, axis='y')
-    plt.ylabel('RMSE')
-    plt.xlabel('Steps')
-    plt.title('Training/Validation Error vs GD steps(SGD_momentum)')
-    plt.grid()
-    plt.show()
-    plt.plot(ηList, 'c-', label='Learning Rate')
-    plt.axis([0, 100, 0, 1])
-    plt.ylabel('Learning Rate')
-    plt.xlabel('Steps')
-    plt.title('Learning Rate vs steps')
-    plt.show()
+    # plt.semilogx(RMSE_records, 'b-', label='Train Error')
+    # plt.semilogx(validation_records, 'r-', label='valid Error')
+    # plt.legend();
+    # plt.xlim([0,10000])
+    # plt.autoscale(enable=True, axis='y')
+    # plt.ylabel('RMSE')
+    # plt.xlabel('Steps')
+    # plt.title('Training/Validation Error vs GD steps(SGD_momentum)')
+    # plt.grid()
+    # plt.show()
+    # plt.plot(ηList, 'c-', label='Learning Rate')
+    # plt.axis([0, 100, 0, 1])
+    # plt.ylabel('Learning Rate')
+    # plt.xlabel('Steps')
+    # plt.title('Learning Rate vs steps')
+    # plt.show()
 
 
     return currWeight,trainingErros, ηList, RMSE_records

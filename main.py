@@ -354,10 +354,10 @@ def generateResult():
             pb3 = spline(a, d, xnew)
             pb4 = spline(a, e, xnew)
 
-            plt.plot(xnew, pb1, '-r', label='1')
-            plt.plot(xnew, pb2, '-g', label='2')
-            plt.plot(xnew, pb3, '-b', label='3')
-            plt.plot(xnew, pb4, '-c', label='4')
+            plt.plot(xnew, pb1, '-r', label='rate = 0.001')
+            plt.plot(xnew, pb2, '-g', label='rate = 0.01')
+            plt.plot(xnew, pb3, '-b', label='rate = 0.1')
+            plt.plot(xnew, pb4, '-c', label='rate = 1')
             plt.show()
         if (False):
             '''Tuning Task 3'''
@@ -390,7 +390,7 @@ def generateResult():
             plt.legend()
             plt.grid()
             plt.show()
-        if (False):
+        if (True):
             '''Tuning Task 4'''
             print("GradientDescent on Syn")
             performanceTuning4(lamda_values,
@@ -414,10 +414,10 @@ def generateResult():
             pb2 = spline(a, c, xnew)
             pb3 = spline(a, d, xnew)
             pb4 = spline(a, e, xnew)
-            plt.plot(xnew,pb1, label = 'rate = 0.001')
-            plt.plot(xnew,pb2, label = 'rate = 0.01')
-            plt.plot(xnew, pb3, label='rate = 0.1')
-            plt.plot(xnew, pb4, label='rate = 1')
+            plt.semilogy(xnew,pb1, label = 'rate = 0.001')
+            plt.semilogy(xnew,pb2, label = 'rate = 0.01')
+            plt.semilogy(xnew, pb3, label='rate = 0.1')
+            plt.semilogy(xnew, pb4, label='rate = 1')
             plt.legend()
             plt.grid()
             plt.show()
@@ -425,12 +425,12 @@ def generateResult():
 # if you want to See results, set the bool false to true;
 # all experiments are based on the best parameters chosen from tuning
     if(StartTesting):
-        if (True):
+        if (False):
             print("performance of Task 1")
             print("Learning rate 0.01, # of Basis 41")
 
-            performanceCF_LETR(0.01,
-                               41,
+            performanceCF_LETR(0.001,
+                               46,
                                errorMat_T1_T2,
                                trainingData_t1_t2,
                                trainingLabel_t1_t2,
@@ -438,7 +438,7 @@ def generateResult():
                                validationLabel_t1_t2,
                                testData_t1_t2,
                                testLabel_t1_t2)
-        if (False):
+        if (True):
 
             print("performance of Task 2")
             print("Learning rate 0.01, # of Basis 11")
