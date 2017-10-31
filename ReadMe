@@ -3,4 +3,10 @@ Jingyi Zhao (50245749)
 Can Yao (50243637)
 Zheng Kai (50247576) 	
 
+Train a simple Linear regression model. Given an input vector, output a desired rank. The performance of the model is based on mean square
+error between actual rank and predicted rank.
 
+The model is trained in 2 fashion:
+
+1st method: Closed form solution using vector manipulation. This method generate weight in a single step, and does not involve much ML concepts.
+2nd method: Stochastic Gradient descend, and a better gradient descent with momentum 
